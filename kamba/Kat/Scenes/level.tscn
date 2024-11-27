@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqodpb183qsgy"]
+
+[ext_resource type="Texture2D" uid="uid://o2ydb7aiif6j" path="res://Kat/Assets/background_placeholder.jpg" id="1_m5slm"]
+[ext_resource type="PackedScene" uid="uid://b48tqia1ryvet" path="res://Kat/Scenes/character_placeholder.tscn" id="2_a7sxh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gmr7r"]
+size = Vector2(3368, 20)
+
+[node name="Level" type="Node2D"]
+position = Vector2(577, -323)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -579.0
+offset_top = -323.0
+offset_right = 1074.0
+offset_bottom = -53.0
+scale = Vector2(2.04, 2.4)
+texture = ExtResource("1_m5slm")
+stretch_mode = 1
+
+[node name="character_placeholder" parent="." instance=ExtResource("2_a7sxh")]
+position = Vector2(-324, 87)
+
+[node name="Camera2D" type="Camera2D" parent="character_placeholder"]
+position = Vector2(1304, -340)
+scale = Vector2(4, 4)
+limit_left = 0
+limit_top = -649
+limit_right = 3369
+limit_bottom = 0
+editor_draw_limits = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(494, 329)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(614, 0)
+shape = SubResource("RectangleShape2D_gmr7r")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(2802, -135)
+rotation = 1.5708
+scale = Vector2(0.200001, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(614, 0)
+shape = SubResource("RectangleShape2D_gmr7r")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(-584, -135)
+rotation = 1.5708
+scale = Vector2(0.200001, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(614, 0)
+shape = SubResource("RectangleShape2D_gmr7r")
