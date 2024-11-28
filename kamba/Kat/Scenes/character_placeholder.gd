@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
-
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const SPEED = 800.0
+const JUMP_VELOCITY = -600.0
 var direction
+signal game_over
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -31,4 +31,5 @@ func _process(delta: float) -> void:
 	elif (direction == 1):
 		$Sprite2D.flip_h = true
 
-		
+func fall_death(body: Node2D) -> void:
+	game_over.emit()
