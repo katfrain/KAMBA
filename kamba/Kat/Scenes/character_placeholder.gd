@@ -3,8 +3,11 @@ extends CharacterBody2D
 const SPEED = 800.0
 const JUMP_VELOCITY = -600.0
 var direction
-signal game_over
 
+signal game_over
+signal win_level
+
+# default movement script
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -31,5 +34,15 @@ func _process(delta: float) -> void:
 	elif (direction == 1):
 		$Sprite2D.flip_h = true
 
+# currently have the game paused upon win/loss, this could be changed in the future if something else fits our game better
+# if collision shape enters killzone, check if its the player, if it is, game over
 func fall_death(body: Node2D) -> void:
-	game_over.emit()
+	if (body == self):
+		game_over.emit()
+		get_tree().paused = true
+
+# if collision shape enters winzone, check if its the player, if it is, you win
+func win(body: Node2D) -> void:
+	if (body == self):
+		win_level.emit()
+		get_tree().paused = true

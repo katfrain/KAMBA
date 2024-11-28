@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=4 uid="uid://dqodpb183qsgy"]
+[gd_scene load_steps=13 format=4 uid="uid://dqodpb183qsgy"]
 
 [ext_resource type="Script" path="res://Kat/Scenes/level.gd" id="1_grox1"]
 [ext_resource type="Texture2D" uid="uid://o2ydb7aiif6j" path="res://Kat/Assets/background_placeholder.jpg" id="1_m5slm"]
 [ext_resource type="PackedScene" uid="uid://b48tqia1ryvet" path="res://Kat/Scenes/character_placeholder.tscn" id="2_a7sxh"]
 [ext_resource type="Texture2D" uid="uid://c1axs2788dcy" path="res://Kat/Assets/tileset_placeholder.png" id="3_yt1y5"]
 [ext_resource type="Script" path="res://Kat/Scenes/panel.gd" id="4_p33ya"]
+[ext_resource type="PackedScene" uid="uid://djbjda52ea6bu" path="res://Kat/Scenes/win_zone.tscn" id="6_a5nrf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o0u0x"]
 resource_name = "Placeholder"
@@ -137,13 +138,13 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_o0u0x")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6gyas"]
-size = Vector2(19.5555, 349.778)
+size = Vector2(19.5555, 351.777)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gmr7r"]
 size = Vector2(1753.33, 20.2219)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yedgb"]
-size = Vector2(221438, 17.4265)
+size = Vector2(221362, 8.3986)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xobvm"]
 bg_color = Color(0, 0, 0, 0.564706)
@@ -158,14 +159,14 @@ offset_left = -268.0
 offset_top = -49.0
 offset_right = 1382.0
 offset_bottom = 221.0
-scale = Vector2(2.09996, 1.28213)
+scale = Vector2(2.03876, 1.28213)
 texture = ExtResource("1_m5slm")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="temp_tilemap" type="TileMapLayer" parent="."]
 position = Vector2(304, -26)
-tile_map_data = PackedByteArray("AADu/wgAAAABAAAAAADv/wgAAAABAAAAAADw/wgAAAABAAAAAADx/wgAAAABAAAAAADy/wgAAAABAAAAAADz/wgAAAABAAAAAAD0/wgAAAABAAAAAAD1/wgAAAABAAAAAAD2/wgAAAABAAAAAAD3/wgAAAABAAAAAAD4/wgAAAABAAAAAAD5/wgAAAABAAAAAAD6/wgAAAABAAAAAAD7/wgAAAABAAAAAAD8/wgAAAABAAAAAADu/wkAAAABAAEAAADv/wkAAAABAAEAAADw/wkAAAABAAEAAADx/wkAAAABAAEAAADy/wkAAAABAAEAAADz/wkAAAABAAEAAAD0/wkAAAABAAEAAAD1/wkAAAABAAEAAAD2/wkAAAABAAEAAAD3/wkAAAABAAEAAAD4/wkAAAABAAEAAAD5/wkAAAABAAEAAAD6/wkAAAABAAEAAAD7/wkAAAABAAEAAAD8/wkAAAABAAEAAAD9/wcAAAAGAAQAAAD+/wYAAAAGAAQAAAD//wUAAAAGAAQAAAAAAAUAAAABAAAAAAAEAAUAAAABAAAAAAAFAAUAAAAHAAQAAAAGAAYAAAAHAAQAAAAHAAcAAAABAAAAAAAIAAcAAAABAAAAAAAJAAcAAAABAAAAAAAKAAcAAAABAAAAAAALAAgAAAAHAAUAAAALAAcAAAAHAAQAAAAMAAgAAAAHAAQAAAANAAkAAAABAAAAAAAOAAkAAAABAAAAAAAPAAkAAAABAAAAAAAQAAkAAAABAAAAAAAAAAYAAAABAAEAAAAAAAcAAAABAAEAAAAAAAgAAAABAAEAAAAAAAkAAAABAAEAAAD//wYAAAAGAAUAAAD//wcAAAABAAEAAAD//wgAAAABAAEAAAD//wkAAAABAAEAAAD+/wcAAAAGAAUAAAD+/wgAAAABAAEAAAD+/wkAAAABAAEAAAD9/wgAAAAGAAUAAAD9/wkAAAABAAEAAAAEAAYAAAABAAEAAAAEAAcAAAABAAEAAAAEAAgAAAABAAEAAAAEAAkAAAABAAEAAAAFAAYAAAAHAAUAAAAFAAcAAAABAAEAAAAFAAgAAAABAAEAAAAFAAkAAAABAAEAAAAGAAcAAAABAAEAAAAGAAgAAAABAAEAAAAGAAkAAAABAAEAAAAHAAgAAAABAAEAAAAIAAgAAAABAAEAAAAJAAgAAAABAAEAAAAKAAgAAAABAAEAAAAHAAkAAAABAAEAAAAIAAkAAAABAAEAAAAJAAkAAAABAAEAAAAKAAkAAAABAAEAAAALAAkAAAABAAEAAAAMAAkAAAAHAAUAAAARAAcAAAAGAAAAAAASAAcAAAAGAAAAAAATAAcAAAAGAAAAAAAVAAUAAAAGAAAAAAAWAAUAAAAGAAAAAAAXAAUAAAAGAAAAAAAZAAYAAAAGAAAAAAAaAAYAAAAGAAAAAAAeAAYAAAAGAAAAAAAgAAcAAAAHAAQAAAAhAAgAAAAHAAQAAAAhAAkAAAAHAAUAAAAgAAgAAAAHAAUAAAAgAAkAAAABAAEAAAAiAAkAAAABAAAAAAAjAAkAAAABAAAAAAAkAAkAAAABAAAAAAAlAAkAAAABAAAAAAAmAAkAAAABAAAAAAAnAAkAAAABAAAAAAAoAAkAAAABAAAAAAApAAkAAAABAAAAAAAqAAkAAAABAAAAAAArAAkAAAABAAAAAAA=")
+tile_map_data = PackedByteArray("AADu/wgAAAABAAAAAADv/wgAAAABAAAAAADw/wgAAAABAAAAAADx/wgAAAABAAAAAADy/wgAAAABAAAAAADz/wgAAAABAAAAAAD0/wgAAAABAAAAAAD1/wgAAAABAAAAAAD2/wgAAAABAAAAAAD3/wgAAAABAAAAAAD4/wgAAAABAAAAAAD5/wgAAAABAAAAAAD6/wgAAAABAAAAAAD7/wgAAAABAAAAAAD8/wgAAAABAAAAAADu/wkAAAABAAEAAADv/wkAAAABAAEAAADw/wkAAAABAAEAAADx/wkAAAABAAEAAADy/wkAAAABAAEAAADz/wkAAAABAAEAAAD0/wkAAAABAAEAAAD1/wkAAAABAAEAAAD2/wkAAAABAAEAAAD3/wkAAAABAAEAAAD4/wkAAAABAAEAAAD5/wkAAAABAAEAAAD6/wkAAAABAAEAAAD7/wkAAAABAAEAAAD8/wkAAAABAAEAAAD9/wcAAAAGAAQAAAD+/wYAAAAGAAQAAAD//wUAAAAGAAQAAAAAAAUAAAABAAAAAAAEAAUAAAABAAAAAAAFAAUAAAAHAAQAAAAGAAYAAAAHAAQAAAAHAAcAAAABAAAAAAAIAAcAAAABAAAAAAAJAAcAAAABAAAAAAAKAAcAAAABAAAAAAALAAgAAAAHAAUAAAALAAcAAAAHAAQAAAAMAAgAAAAHAAQAAAANAAkAAAABAAAAAAAOAAkAAAABAAAAAAAPAAkAAAABAAAAAAAQAAkAAAABAAAAAAAAAAYAAAABAAEAAAAAAAcAAAABAAEAAAAAAAgAAAABAAEAAAAAAAkAAAABAAEAAAD//wYAAAAGAAUAAAD//wcAAAABAAEAAAD//wgAAAABAAEAAAD//wkAAAABAAEAAAD+/wcAAAAGAAUAAAD+/wgAAAABAAEAAAD+/wkAAAABAAEAAAD9/wgAAAAGAAUAAAD9/wkAAAABAAEAAAAEAAYAAAABAAEAAAAEAAcAAAABAAEAAAAEAAgAAAABAAEAAAAEAAkAAAABAAEAAAAFAAYAAAAHAAUAAAAFAAcAAAABAAEAAAAFAAgAAAABAAEAAAAFAAkAAAABAAEAAAAGAAgAAAABAAEAAAAGAAkAAAABAAEAAAAHAAgAAAABAAEAAAAIAAgAAAABAAEAAAAJAAgAAAABAAEAAAAKAAgAAAABAAEAAAAHAAkAAAABAAEAAAAIAAkAAAABAAEAAAAJAAkAAAABAAEAAAAKAAkAAAABAAEAAAALAAkAAAABAAEAAAAMAAkAAAAHAAUAAAARAAcAAAAGAAAAAAASAAcAAAAGAAAAAAATAAcAAAAGAAAAAAAVAAUAAAAGAAAAAAAWAAUAAAAGAAAAAAAXAAUAAAAGAAAAAAAZAAYAAAAGAAAAAAAaAAYAAAAGAAAAAAAgAAcAAAAHAAQAAAAhAAgAAAAHAAQAAAAhAAkAAAAHAAUAAAAgAAgAAAAHAAUAAAAgAAkAAAABAAEAAAAiAAkAAAABAAAAAAAjAAkAAAABAAAAAAAkAAkAAAABAAAAAAAlAAkAAAABAAAAAAAmAAkAAAABAAAAAAAnAAkAAAABAAAAAAAoAAkAAAABAAAAAAApAAkAAAABAAAAAAAqAAkAAAABAAAAAAArAAkAAAABAAAAAAAGAAcAAAAHAAUAAAA=")
 tile_set = SubResource("TileSet_x3uyy")
 
 [node name="character_placeholder" parent="." instance=ExtResource("2_a7sxh")]
@@ -184,7 +185,7 @@ editor_draw_limits = true
 [node name="right_border" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="right_border"]
-position = Vector2(3087.11, 123.556)
+position = Vector2(3087.11, 124.556)
 shape = SubResource("RectangleShape2D_6gyas")
 
 [node name="left_border" type="StaticBody2D" parent="."]
@@ -198,16 +199,17 @@ scale = Vector2(0.999999, 1)
 shape = SubResource("RectangleShape2D_gmr7r")
 
 [node name="kill_zone" type="Area2D" parent="."]
-position = Vector2(1706, 127)
+position = Vector2(1706, 193.333)
 scale = Vector2(0.015239, 1.41248)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="kill_zone"]
-position = Vector2(-19487.6, 133.275)
+position = Vector2(-19409.3, 118.498)
 shape = SubResource("RectangleShape2D_yedgb")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="game_over_menu" type="Panel" parent="CanvasLayer"]
+process_mode = 2
 visible = false
 custom_minimum_size = Vector2(64, 64)
 anchors_preset = 8
@@ -256,6 +258,64 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "RESTART"
 
+[node name="win_level_menu" type="Panel" parent="CanvasLayer"]
+process_mode = 2
+visible = false
+custom_minimum_size = Vector2(64, 64)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -75.0
+offset_right = 150.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xobvm")
+script = ExtResource("4_p33ya")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer/win_level_menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.0
+offset_top = -26.0
+offset_right = 46.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "YOU WIN!"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="CanvasLayer/win_level_menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.0
+offset_top = -2.5
+offset_right = 38.0
+offset_bottom = 28.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "RESTART"
+
+[node name="Area2D" parent="." instance=ExtResource("6_a5nrf")]
+position = Vector2(1712.44, 266.222)
+scale = Vector2(0.2, 0.2)
+
 [connection signal="game_over" from="character_placeholder" to="CanvasLayer/game_over_menu" method="make_visible"]
+[connection signal="win_level" from="character_placeholder" to="CanvasLayer/win_level_menu" method="make_visible"]
 [connection signal="body_entered" from="kill_zone" to="character_placeholder" method="fall_death"]
 [connection signal="pressed" from="CanvasLayer/game_over_menu/Button" to="." method="restart_level"]
+[connection signal="pressed" from="CanvasLayer/win_level_menu/Button" to="." method="restart_level"]
+[connection signal="body_entered" from="Area2D" to="character_placeholder" method="win"]
