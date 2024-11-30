@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cm37f6ply2xc8"]
+
+[ext_resource type="Texture2D" uid="uid://f5q14ovlglb5" path="res://Kat/Assets/coin_placeholder.png" id="1_pyeeu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_abrha"]
+radius = 99.6092
+
+[node name="collectable" type="Area2D"]
+collision_mask = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_pyeeu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_abrha")

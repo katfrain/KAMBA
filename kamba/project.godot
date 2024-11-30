@@ -14,6 +14,13 @@ config/name="KAMBA"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[layer_names]
+
+2d_physics/layer_1="Environment"
+2d_physics/layer_2="Player"
+2d_physics/layer_3="Zones"
+2d_physics/layer_4="Enemies"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
