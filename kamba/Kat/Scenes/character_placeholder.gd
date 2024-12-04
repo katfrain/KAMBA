@@ -21,7 +21,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		speed = 800
 	if (velocity.y >= 0):
-		velocity += get_gravity() * delta * 2
+		velocity += get_gravity() * delta * 3
 		
 	# Handle jump (only when can_move is true).
 	if can_move and Input.is_action_just_pressed("ui_accept") and is_on_floor():

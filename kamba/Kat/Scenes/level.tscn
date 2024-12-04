@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://dqodpb183qsgy"]
+[gd_scene load_steps=23 format=4 uid="uid://dqodpb183qsgy"]
 
 [ext_resource type="Script" path="res://Kat/Scenes/level.gd" id="1_grox1"]
 [ext_resource type="Texture2D" uid="uid://o2ydb7aiif6j" path="res://Kat/Assets/background_placeholder.jpg" id="1_m5slm"]
@@ -14,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://cm37f6ply2xc8" path="res://Kat/Scenes/collectable.tscn" id="12_4hsfj"]
 [ext_resource type="Script" path="res://Kat/Scenes/win_zone.gd" id="12_7eeee"]
 [ext_resource type="Script" path="res://Kat/Scenes/collectable.gd" id="14_em6et"]
-[ext_resource type="PackedScene" uid="uid://bkhgrpl3olxen" path="res://Kat/Scenes/enemy.tscn" id="15_khxhm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3rh5l"]
 texture = ExtResource("3_i2b84")
@@ -441,12 +440,6 @@ scale = Vector2(0.335296, 0.335296)
 script = ExtResource("14_em6et")
 
 [node name="Enemies" type="Node" parent="."]
-
-[node name="enemy" parent="Enemies" instance=ExtResource("15_khxhm")]
-position = Vector2(597, 468)
-scale = Vector2(0.5, 0.5)
-collision_layer = 8
-collision_mask = 3
 
 [connection signal="start_timer" from="." to="UI/CanvasLayer/timer" method="start_timer"]
 [connection signal="game_over" from="Character/character_placeholder" to="UI/CanvasLayer/game_over_menu" method="make_visible"]
