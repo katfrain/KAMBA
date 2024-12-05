@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://djbjda52ea6bu"]
+
+[ext_resource type="Texture2D" uid="uid://bcj688gxjsuuh" path="res://Kat/Assets/win_flag_placeholder.png" id="1_ybupn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w5pw7"]
+size = Vector2(278, 356)
+
+[node name="win_zone" type="Area2D"]
+
+[node name="flag" type="Sprite2D" parent="."]
+position = Vector2(-143, -175)
+scale = Vector2(0.502751, 0.502751)
+texture = ExtResource("1_ybupn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-142, -181)
+shape = SubResource("RectangleShape2D_w5pw7")

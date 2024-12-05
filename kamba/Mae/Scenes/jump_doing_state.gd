@@ -28,36 +28,12 @@ func _physics_process(delta: float) -> void:
 			if state_machine.player.velocity.x != 0:
 				transitioned.emit("MoveDoingState")
 			transitioned.emit("IdleDoingState")
-		
-		if state_machine.player.velocity.y < 0:
+
+        if state_machine.player.velocity.y < 0:
 			animated_sprite.play(persona.GetName()+"Up")
 		if state_machine.player.velocity.y > 0:
 			animated_sprite.play(persona.GetName()+"Down")
 		
-		
 
-#func _physics_process(delta: float) -> void:
-	#
-		#state_machine.player.velocity.y += gravity * delta
-		#
-		#var yMovement = state_machine.player.velocity.y 
-		#var xMovement = state_machine.player.velocity.x 
-		#persona = state_machine.persona_identity 
-		#if state_machine.player.is_on_floor(): 
-			#if xMovement == 0:
-				#transitioned.emit("IdleDoingState")
-			#else: transitioned.emit("MoveDoingState")
-		##if yMovement > 0:
-			##animated_sprite.play(persona.GetName()+"Up")
-		##if yMovement < 0:
-			##animated_sprite.play(persona.GetName()+"Down")
-		##
-func UpdatePersona(identity: State):
-	persona = identity
-	animated_sprite.play(persona.GetName()+"Jump")
-	pass
-
-func Exit():
-	print("Jump state exited")
 
 	
