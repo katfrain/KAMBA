@@ -1,8 +1,8 @@
 [gd_scene load_steps=24 format=4 uid="uid://dqodpb183qsgy"]
 
 [ext_resource type="Script" path="res://Kat/Scenes/level.gd" id="1_grox1"]
-[ext_resource type="Texture2D" uid="uid://o2ydb7aiif6j" path="res://Kat/Assets/background_placeholder.jpg" id="1_m5slm"]
 [ext_resource type="PackedScene" uid="uid://b48tqia1ryvet" path="res://Kat/Scenes/character_placeholder.tscn" id="2_a7sxh"]
+[ext_resource type="Texture2D" uid="uid://dpdeci5ugstd7" path="res://Mae/Assets/Untitled_Artwork.jpg" id="2_sbr0j"]
 [ext_resource type="Texture2D" uid="uid://c1axs2788dcy" path="res://Kat/Assets/tileset_placeholder.png" id="3_i2b84"]
 [ext_resource type="Script" path="res://Kat/Scenes/panel.gd" id="4_p33ya"]
 [ext_resource type="PackedScene" uid="uid://djbjda52ea6bu" path="res://Kat/Scenes/win_zone.tscn" id="6_a5nrf"]
@@ -175,14 +175,14 @@ script = ExtResource("1_grox1")
 anchors_preset = -1
 anchor_left = -0.342014
 anchor_top = 0.000385802
-anchor_right = -0.342014
-anchor_bottom = 0.000385802
+anchor_right = 4.31684
+anchor_bottom = 2.11458
 offset_left = -26.0
 offset_top = -107.25
 offset_right = 1624.0
 offset_bottom = 162.75
-scale = Vector2(6.039, 3.797)
-texture = ExtResource("1_m5slm")
+scale = Vector2(1.14322, 0.647408)
+texture = ExtResource("2_sbr0j")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
@@ -207,7 +207,7 @@ offset = Vector2(256, 0)
 [node name="Character" type="Node" parent="."]
 
 [node name="character_placeholder" parent="Character" instance=ExtResource("2_a7sxh")]
-position = Vector2(466, 416)
+position = Vector2(-1090, 286)
 scale = Vector2(0.3375, 0.3375)
 collision_layer = 2
 collision_mask = 7

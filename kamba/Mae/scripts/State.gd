@@ -35,5 +35,5 @@ func Update(delta: float) -> void:
 	pass
 
 #the logic at fixed physics intervals
-func Physics_update(delta: float) -> void:
+func Physics_update(delta: float, can_move: bool) -> void:
 	pass
