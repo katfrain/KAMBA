@@ -11,8 +11,12 @@ func Exit():
 func GetName():
 	return "Kat"
 
-
-func _process(delta):
+func Update(delta):
 	if Input.is_action_just_pressed("mae"):
 		transitioned.emit("MaeBeingState")
 	
+
+#func _process(delta):
+	#if Input.is_action_just_pressed("mae"):
+		#transitioned.emit("MaeBeingState")
+	#

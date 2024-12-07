@@ -22,22 +22,12 @@ func _ready():
 			
 	current_state.Enter()
 			
-func _process(delta):
+func process(delta):
 	current_state.Update(delta)
-
-
-func _on_persona_entered(identity: State):	
-	persona_identity = identity
-	animated_sprite.play("Poof")
-		
-func Poof_Done():
-	if animated_sprite.animation == "Poof":	
-		current_state.UpdatePersona(persona_identity)
-	
-
-func _physics_process(delta):
+func physics_process(delta):
 	current_state.Physics_update(delta)
-	
+
+
 func on_child_transitioned(new_state_name: StringName) -> void:
 	var new_state = states.get(new_state_name)
 	if new_state != null:
@@ -49,3 +39,15 @@ func on_child_transitioned(new_state_name: StringName) -> void:
 			
 	else:
 		push_warning("Called transition on a state that does not exist")
+
+
+func _on_persona_entered(identity: State):	
+	persona_identity = identity
+	animated_sprite.play("Poof")
+		
+func Poof_Done():
+	if animated_sprite.animation == "Poof":	
+		current_state.UpdatePersona(persona_identity)
+	
+
+	
