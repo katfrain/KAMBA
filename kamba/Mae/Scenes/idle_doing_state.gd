@@ -12,6 +12,7 @@ extends State
 func Enter():
 	persona = state_machine.persona_identity 
 	animated_sprite.play(persona.GetName()+"Idle")
+	print("idle entered")
 		
 func UpdatePersona(identity: State):
 	persona = identity

@@ -36,7 +36,8 @@ func Physics_update(delta, can_move):
 			print("on floor")
 			if state_machine.player.velocity.x != 0:
 				transitioned.emit("MoveDoingState")
-			transitioned.emit("IdleDoingState")
+			else:
+				transitioned.emit("IdleDoingState")
 
 #func _physics_process(delta: float) -> void:
 	#if state_machine.current_state == self:

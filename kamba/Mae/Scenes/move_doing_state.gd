@@ -30,6 +30,7 @@ func Physics_update(delta, can_move):
 
 	if can_move:
 		# Process movement input only if can_move is true
+		
 		var direction = Input.get_axis("move_left", "move_right")
 		
 		# Play animations based on input
