@@ -13,7 +13,7 @@ func _ready():
 func _physics_process(delta: float) -> void:
 	velocity.y += gravity * delta
 	Doing_sm.player.move_and_slide()
-	Doing_sm.physics_process(delta)
+	Doing_sm.physics_process(delta, can_move)
 	
 	 
 func _process(delta: float) -> void:

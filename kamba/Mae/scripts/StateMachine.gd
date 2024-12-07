@@ -24,8 +24,8 @@ func _ready():
 			
 func process(delta):
 	current_state.Update(delta)
-func physics_process(delta):
-	current_state.Physics_update(delta)
+func physics_process(delta, can_move):
+	current_state.Physics_update(delta, can_move)
 
 
 func on_child_transitioned(new_state_name: StringName) -> void:

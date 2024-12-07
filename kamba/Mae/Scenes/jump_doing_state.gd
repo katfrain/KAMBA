@@ -17,7 +17,7 @@ func Enter():
 	animated_sprite.play(persona.GetName() + "Up")
 	
 
-func Physics_update(delta):
+func Physics_update(delta, can_move):
 	
 		animated_sprite.play(persona.GetName() + "Up")
 		var direction = Input.get_axis('move_left', 'move_right') 
