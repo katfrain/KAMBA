@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://dqodpb183qsgy"]
+[gd_scene load_steps=24 format=4 uid="uid://dqodpb183qsgy"]
 
 [ext_resource type="Script" path="res://Kat/Scenes/level.gd" id="1_grox1"]
 [ext_resource type="Texture2D" uid="uid://o2ydb7aiif6j" path="res://Kat/Assets/background_placeholder.jpg" id="1_m5slm"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c1axs2788dcy" path="res://Kat/Assets/tileset_placeholder.png" id="3_i2b84"]
 [ext_resource type="Script" path="res://Kat/Scenes/panel.gd" id="4_p33ya"]
 [ext_resource type="PackedScene" uid="uid://djbjda52ea6bu" path="res://Kat/Scenes/win_zone.tscn" id="6_a5nrf"]
+[ext_resource type="PackedScene" uid="uid://yjah0q8d3uuc" path="res://Mae/Scenes/player.tscn" id="6_ldmg1"]
 [ext_resource type="Script" path="res://Kat/Scenes/timer.gd" id="6_q58tk"]
 [ext_resource type="Script" path="res://Kat/Scenes/win_time.gd" id="6_qeym0"]
 [ext_resource type="PackedScene" uid="uid://c3psq8tpronfm" path="res://Kat/Scenes/moving_platform.tscn" id="7_o3oyj"]
@@ -205,14 +206,17 @@ offset = Vector2(256, 0)
 [node name="Character" type="Node" parent="."]
 
 [node name="character_placeholder" parent="Character" instance=ExtResource("2_a7sxh")]
-position = Vector2(129, 435)
+position = Vector2(-1077, 341)
 scale = Vector2(0.3375, 0.3375)
 collision_layer = 2
 collision_mask = 7
 
-[node name="Camera2D" type="Camera2D" parent="Character/character_placeholder"]
-position = Vector2(1318.52, -228.148)
-scale = Vector2(4, 4)
+[node name="Player" parent="Character" instance=ExtResource("6_ldmg1")]
+position = Vector2(324, 322)
+
+[node name="Camera2D2" type="Camera2D" parent="Character/Player"]
+position = Vector2(113.333, 31.5556)
+scale = Vector2(1.35, 1.35)
 limit_left = 3
 limit_top = -100
 limit_right = 7500
