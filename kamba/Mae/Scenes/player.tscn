@@ -237,7 +237,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"KatMove",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -326,7 +326,8 @@ animations = [{
 script/source = "extends AnimatedSprite2D
 "
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ts6uv"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i08o8"]
+size = Vector2(27.352, 75.2885)
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(-14, -35)
@@ -359,15 +360,15 @@ script = ExtResource("7_56usy")
 position = Vector2(-12, 17)
 scale = Vector2(0.14375, 0.14375)
 sprite_frames = SubResource("SpriteFrames_vhoju")
-animation = &"KatUp"
+animation = &"KatMove"
 autoplay = "KatIdle"
 script = SubResource("GDScript_jk8u8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-4, 59)
+position = Vector2(-15.5, 19)
 rotation = -3.14159
 scale = Vector2(2.01082, -1.77982)
-shape = SubResource("CircleShape2D_ts6uv")
+shape = SubResource("RectangleShape2D_i08o8")
 
 [node name="Timer" type="Timer" parent="."]
 

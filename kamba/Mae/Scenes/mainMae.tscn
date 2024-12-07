@@ -26,4 +26,5 @@ shape = SubResource("WorldBoundaryShape2D_26jtx")
 
 [node name="Player" parent="." instance=ExtResource("3_lxpyl")]
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-7, -28)
