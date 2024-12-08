@@ -14,8 +14,5 @@ func GetName():
 func Update(delta):
 	if Input.is_action_just_pressed("kat"):
 		transitioned.emit("KatBeingState")
-
-#
-#func _process(delta):
-	#if Input.is_action_just_pressed("kat"):
-		#transitioned.emit("KatBeingState")
+func Attack():
+	pass

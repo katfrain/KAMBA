@@ -19,21 +19,17 @@ var parent: CharacterBody2D
 func Enter() -> void:
 	pass
 	
-#logic for when the state is ending 	
-func Exit() -> void:
-	pass
-	
-func process_input(event: InputEvent) -> State:
-	return null	
-
-
-func process_physics(delta: float):
-	return null
-	
 #the logic being executed at each frame of the game	
 func Update(delta: float) -> void:
 	pass
 
 #the logic at fixed physics intervals
 func Physics_update(delta: float, can_move: bool) -> void:
+	pass
+
+func Attack():
+	pass
+
+#logic for when the state is ending 	
+func Exit() -> void:
 	pass
