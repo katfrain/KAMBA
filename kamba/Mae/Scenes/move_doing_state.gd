@@ -19,6 +19,7 @@ var direction = 0
 func Enter():
 	persona = state_machine.persona_identity
 	animated_sprite.play(persona.GetName() + "Move")
+	entered.emit()
 	
 func UpdatePersona(identity: State):
 	persona = identity
@@ -54,6 +55,7 @@ func Physics_update(delta, can_move):
 	else:
 		# Stop all movement when can_move is false
 		state_machine.player.velocity.x = 0
+		animated_sprite.play(persona.GetName() + "Idle")
 
 	# Transitioning states
 	if state_machine.player.velocity.x == 0 and not Input.is_action_pressed("move_left") and not Input.is_action_pressed("move_right"):
@@ -89,4 +91,4 @@ func Physics_update(delta, can_move):
 			#
 
 func Exit():
-	print("move state exited")
+	pass

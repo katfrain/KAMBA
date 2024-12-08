@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://yjah0q8d3uuc"]
+[gd_scene load_steps=55 format=3 uid="uid://yjah0q8d3uuc"]
 
 [ext_resource type="Script" path="res://Mae/Scenes/player.gd" id="1_2ty8w"]
 [ext_resource type="Script" path="res://PlayerStateMachine.gd" id="2_rx0ls"]
@@ -14,10 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://dpvajkyxm8b2q" path="res://Mae/Assets/Bug2-idle.png" id="12_2upko"]
 [ext_resource type="Texture2D" uid="uid://cf5ktetqrrw4r" path="res://Mae/Assets/slime_green.png" id="13_kg5ai"]
 [ext_resource type="Texture2D" uid="uid://b2ad6ihp1qeft" path="res://Mae/Assets/Poof.png" id="14_k45ae"]
-[ext_resource type="Script" path="res://Kat/Scenes/debug_text.gd" id="15_psrc6"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_oqet3"]
-size = Vector2(65, 121)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_13a2c"]
 atlas = ExtResource("8_xj186")
@@ -333,19 +329,9 @@ script/source = "extends AnimatedSprite2D
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i08o8"]
 size = Vector2(27.352, 75.2885)
 
-[sub_resource type="LabelSettings" id="LabelSettings_8kpaj"]
-
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(-14, -35)
 script = ExtResource("1_2ty8w")
-
-[node name="Enemy_Kill_Zone" type="Area2D" parent="."]
-collision_layer = 4
-collision_mask = 8
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy_Kill_Zone"]
-position = Vector2(-14.5, 8.5)
-shape = SubResource("RectangleShape2D_oqet3")
 
 [node name="BeingStateMachine" type="Node" parent="." node_paths=PackedStringArray("current_state")]
 script = ExtResource("2_rx0ls")
@@ -386,32 +372,11 @@ shape = SubResource("RectangleShape2D_i08o8")
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="DEBUG_TEXT" type="Label" parent="."]
-anchors_preset = -1
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -47.0
-offset_top = -76.0
-offset_right = 17.0
-offset_bottom = -53.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-text = "DEBUG"
-label_settings = SubResource("LabelSettings_8kpaj")
-horizontal_alignment = 1
-script = ExtResource("15_psrc6")
-
-[connection signal="body_entered" from="Enemy_Kill_Zone" to="." method="enemy_kill_on_collision"]
 [connection signal="entered" from="BeingStateMachine/KatBeingState" to="DoingStateMachine" method="_on_persona_entered"]
 [connection signal="transitioned" from="BeingStateMachine/KatBeingState" to="BeingStateMachine" method="on_child_transitioned"]
 [connection signal="entered" from="BeingStateMachine/MaeBeingState" to="DoingStateMachine" method="_on_persona_entered"]
 [connection signal="transitioned" from="BeingStateMachine/MaeBeingState" to="BeingStateMachine" method="on_child_transitioned"]
-[connection signal="entered" from="DoingStateMachine/IdleDoingState" to="DEBUG_TEXT" method="debug_text_idle"]
 [connection signal="transitioned" from="DoingStateMachine/IdleDoingState" to="DoingStateMachine" method="on_child_transitioned"]
-[connection signal="entered" from="DoingStateMachine/JumpDoingState" to="DEBUG_TEXT" method="debug_text_jump"]
 [connection signal="transitioned" from="DoingStateMachine/JumpDoingState" to="DoingStateMachine" method="on_child_transitioned"]
-[connection signal="entered" from="DoingStateMachine/MoveDoingState" to="DEBUG_TEXT" method="debug_text_move"]
 [connection signal="transitioned" from="DoingStateMachine/MoveDoingState" to="DoingStateMachine" method="on_child_transitioned"]
 [connection signal="animation_looped" from="AnimatedSprite2D" to="DoingStateMachine" method="Poof_Done"]
