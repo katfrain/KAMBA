@@ -12,14 +12,13 @@ const JUMP = 600
 
 func Enter():
 	state_machine.player.velocity.y = -JUMP
-	print("in Jump")
 	persona = state_machine.persona_identity 
 	animated_sprite.play(persona.GetName() + "Up")
+	entered.emit()
 
 func UpdatePersona(identity: State):
 	persona = identity
 	animated_sprite.play(persona.GetName()+"Jump")
-
 
 func Physics_update(delta, can_move):
 	
@@ -37,7 +36,6 @@ func Physics_update(delta, can_move):
 		
 	
 		if state_machine.player.is_on_floor(): 
-			print("on floor")
 			if state_machine.player.velocity.x != 0:
 				transitioned.emit("MoveDoingState")
 			else:

@@ -59,7 +59,7 @@ func fall_death(body: Node2D) -> void:
 func win():
 	win_level.emit()
 	can_move = false
-	
+
 func on_shoot(bullet):
 	arm.play("Arm")
 	var spawedBullet = bullet.instantiate() 
@@ -73,4 +73,9 @@ func on_shoot(bullet):
 	if directionOfChar:
 		spawedBullet.vector = Vector2.RIGHT
 	else: 	spawedBullet.vector = Vector2.LEFT
-	
+
+
+func enemy_kill_on_collision(body: Node2D) -> void:
+	fall_death(body)
+	#add death animation here
+

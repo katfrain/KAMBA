@@ -6,7 +6,7 @@ func Enter():
 	entered.emit(self)
 			
 func Exit():
-	print("mae state exited")
+	pass
 	
 func GetName():
 	return "Mae" 

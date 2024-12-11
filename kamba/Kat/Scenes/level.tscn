@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://dqodpb183qsgy"]
+[gd_scene load_steps=25 format=4 uid="uid://dqodpb183qsgy"]
 
 [ext_resource type="Script" path="res://Kat/Scenes/level.gd" id="1_grox1"]
 [ext_resource type="PackedScene" uid="uid://b48tqia1ryvet" path="res://Kat/Scenes/character_placeholder.tscn" id="2_a7sxh"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://cm37f6ply2xc8" path="res://Kat/Scenes/collectable.tscn" id="12_4hsfj"]
 [ext_resource type="Script" path="res://Kat/Scenes/win_zone.gd" id="12_7eeee"]
 [ext_resource type="Script" path="res://Kat/Scenes/collectable.gd" id="14_em6et"]
+[ext_resource type="PackedScene" uid="uid://c4lsv75wh0874" path="res://Kat/Scenes/Enemy.tscn" id="16_oiaoc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3rh5l"]
 texture = ExtResource("3_i2b84")
@@ -207,13 +208,13 @@ offset = Vector2(256, 0)
 [node name="Character" type="Node" parent="."]
 
 [node name="character_placeholder" parent="Character" instance=ExtResource("2_a7sxh")]
-position = Vector2(-1090, 286)
+position = Vector2(-1189, 298)
 scale = Vector2(0.3375, 0.3375)
 collision_layer = 2
 collision_mask = 7
 
 [node name="Player" parent="Character" instance=ExtResource("6_ldmg1")]
-position = Vector2(308, 94)
+position = Vector2(131, 327)
 collision_layer = 2
 collision_mask = 13
 
@@ -449,9 +450,13 @@ script = ExtResource("14_em6et")
 
 [node name="Enemies" type="Node" parent="."]
 
+[node name="Enemy" parent="Enemies" instance=ExtResource("16_oiaoc")]
+position = Vector2(808, 473)
+
 [connection signal="start_timer" from="." to="UI/CanvasLayer/timer" method="start_timer"]
 [connection signal="game_over" from="Character/character_placeholder" to="UI/CanvasLayer/game_over_menu" method="make_visible"]
 [connection signal="game_over" from="Character/character_placeholder" to="UI/CanvasLayer/timer" method="stop_timer"]
+[connection signal="game_over" from="Character/character_placeholder" to="Enemies/Enemy" method="game_over"]
 [connection signal="win_level" from="Character/character_placeholder" to="UI/CanvasLayer/win_level_menu" method="make_visible"]
 [connection signal="win_level" from="Character/character_placeholder" to="UI/CanvasLayer/win_level_menu/your_score" method="replace_time"]
 [connection signal="win_level" from="Character/character_placeholder" to="UI/CanvasLayer/timer" method="stop_timer"]

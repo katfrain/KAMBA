@@ -19,7 +19,7 @@ func Enter():
 	entered.emit(self)
 	
 func Exit():
-	print("kat state exited")
+	pass
 
 func GetName():
 	return "Kat"

@@ -1,4 +1,4 @@
-class_name StateMachine
+class_name Enemy_State_Machine
 extends Node
 
 @export var current_state: State
@@ -33,11 +33,7 @@ func on_child_transitioned(new_state_name: StringName) -> void:
 			current_state.Exit()
 			new_state.Enter()
 			current_state = new_state
-			current_state.state_machine = self
+			current_state.Enemy_StateMachine = self
 			
 	else:
 		push_warning("Called transition on a state that does not exist")
-
-	
-
-	
