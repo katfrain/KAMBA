@@ -28,10 +28,3 @@ func Update(delta: float):
 func Exit():
 	print("idle state exited")
 	
-
-#func _process(delta: float) -> void:
-	#if Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_right"):
-		#transitioned.emit("MoveDoingState")
-	#if Input.is_action_just_pressed("jump"):
-		#transitioned.emit("JumpDoingState")
-	

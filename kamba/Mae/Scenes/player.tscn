@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://yjah0q8d3uuc"]
+[gd_scene load_steps=58 format=3 uid="uid://bl2s2r0w4ao67"]
 
 [ext_resource type="Script" path="res://Mae/Scenes/player.gd" id="1_2ty8w"]
 [ext_resource type="Script" path="res://Mae/scripts/StateMachine.gd" id="2_los7s"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://dpvajkyxm8b2q" path="res://Mae/Assets/Bug2-idle.png" id="12_2upko"]
 [ext_resource type="Texture2D" uid="uid://cf5ktetqrrw4r" path="res://Mae/Assets/slime_green.png" id="13_kg5ai"]
 [ext_resource type="Texture2D" uid="uid://b2ad6ihp1qeft" path="res://Mae/Assets/Poof.png" id="14_k45ae"]
+[ext_resource type="Texture2D" uid="uid://da7wqaac8ttw5" path="res://Mae/Assets/ChonksterMarty.JPG" id="15_o3un3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_13a2c"]
 atlas = ExtResource("8_xj186")
@@ -326,12 +327,35 @@ animations = [{
 script/source = "extends AnimatedSprite2D
 "
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_jl8qk"]
+atlas = ExtResource("15_o3un3")
+region = Rect2(0, 0, 828, 1104)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f6adi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jl8qk")
+}],
+"loop": true,
+"name": &"Arm",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Default",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i08o8"]
 size = Vector2(27.352, 75.2885)
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(-14, -35)
 script = ExtResource("1_2ty8w")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(-48, 35)
 
 [node name="BeingStateMachine" type="Node" parent="." node_paths=PackedStringArray("current_state")]
 script = ExtResource("2_los7s")
@@ -360,18 +384,26 @@ script = ExtResource("7_56usy")
 position = Vector2(-12, 17)
 scale = Vector2(0.14375, 0.14375)
 sprite_frames = SubResource("SpriteFrames_vhoju")
-animation = &"KatMove"
+animation = &"KatIdle"
 autoplay = "KatIdle"
 script = SubResource("GDScript_jk8u8")
 
+[node name="Arm" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
+position = Vector2(-320, 90)
+scale = Vector2(0.256354, 0.256354)
+sprite_frames = SubResource("SpriteFrames_f6adi")
+animation = &"Default"
+autoplay = "Default"
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-15.5, 19)
+position = Vector2(-14, 19)
 rotation = -3.14159
 scale = Vector2(2.01082, -1.77982)
 shape = SubResource("RectangleShape2D_i08o8")
 
 [node name="Timer" type="Timer" parent="."]
 
+[connection signal="Katshoot" from="BeingStateMachine/KatBeingState" to="." method="on_shoot"]
 [connection signal="entered" from="BeingStateMachine/KatBeingState" to="DoingStateMachine" method="_on_persona_entered"]
 [connection signal="transitioned" from="BeingStateMachine/KatBeingState" to="BeingStateMachine" method="on_child_transitioned"]
 [connection signal="entered" from="BeingStateMachine/MaeBeingState" to="DoingStateMachine" method="_on_persona_entered"]
@@ -379,4 +411,5 @@ shape = SubResource("RectangleShape2D_i08o8")
 [connection signal="transitioned" from="DoingStateMachine/IdleDoingState" to="DoingStateMachine" method="on_child_transitioned"]
 [connection signal="transitioned" from="DoingStateMachine/JumpDoingState" to="DoingStateMachine" method="on_child_transitioned"]
 [connection signal="transitioned" from="DoingStateMachine/MoveDoingState" to="DoingStateMachine" method="on_child_transitioned"]
+[connection signal="vectorChar" from="DoingStateMachine/MoveDoingState" to="." method="_on_move_doing_state_vector_char"]
 [connection signal="animation_looped" from="AnimatedSprite2D" to="DoingStateMachine" method="Poof_Done"]

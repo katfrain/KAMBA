@@ -15,7 +15,6 @@ func Update(delta):
 	if Input.is_action_just_pressed("kat"):
 		transitioned.emit("KatBeingState")
 
-#
-#func _process(delta):
-	#if Input.is_action_just_pressed("kat"):
-		#transitioned.emit("KatBeingState")
+func Attack():
+	print("im attacking")
+	
