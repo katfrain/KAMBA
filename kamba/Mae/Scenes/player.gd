@@ -29,3 +29,8 @@ func fall_death(body: Node2D) -> void:
 func win():
 	win_level.emit()
 	can_move = false
+
+
+func enemy_kill_on_collision(body: Node2D) -> void:
+	fall_death(body)
+	#add death animation here
