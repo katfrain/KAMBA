@@ -7,6 +7,7 @@ signal debug_text_idle
 		return $"../../AnimatedSprite2D"
 		
 func Enter() -> void:
+	
 	debug_text_idle.emit()
 	animated_sprite.play("Enemy_Idle")
 	

@@ -4,11 +4,11 @@ extends CharacterBody2D
 @onready var state_machine: Node = $State_Machine
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 var can_move: bool = true
-
+var direction: bool = false # false = left, true = right
 signal stop_chase_upon_death
 
 func _ready():
-	pass
+	set_direction(false)
 func _physics_process(delta: float) -> void:
 	velocity.y += gravity * delta
 	state_machine.Enemy.move_and_slide()
@@ -22,3 +22,11 @@ func _process(delta: float) -> void:
 
 func game_over() -> void:
 	stop_chase_upon_death.emit()
+	
+func get_direction() -> bool:
+	return direction
+	
+func set_direction(new_direction: bool) -> void:
+	direction = new_direction
+	print('Facing right = ' + str(direction))
+	

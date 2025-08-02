@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://c1axs2788dcy" path="res://Kat/Assets/tileset_placeholder.png" id="3_i2b84"]
 [ext_resource type="Script" path="res://Kat/Scenes/panel.gd" id="4_p33ya"]
 [ext_resource type="PackedScene" uid="uid://djbjda52ea6bu" path="res://Kat/Scenes/win_zone.tscn" id="6_a5nrf"]
-[ext_resource type="PackedScene" uid="uid://bl2s2r0w4ao67" path="res://Mae/Scenes/player.tscn" id="6_ldmg1"]
+[ext_resource type="PackedScene" uid="uid://yjah0q8d3uuc" path="res://Mae/Scenes/player.tscn" id="6_ldmg1"]
 [ext_resource type="Script" path="res://Kat/Scenes/timer.gd" id="6_q58tk"]
 [ext_resource type="Script" path="res://Kat/Scenes/win_time.gd" id="6_qeym0"]
 [ext_resource type="PackedScene" uid="uid://c3psq8tpronfm" path="res://Kat/Scenes/moving_platform.tscn" id="7_o3oyj"]
