@@ -1,12 +1,12 @@
 [gd_scene load_steps=68 format=3 uid="uid://yjah0q8d3uuc"]
 
-[ext_resource type="Script" uid="uid://dyeumabcobntd" path="res://Mae/scripts/player.gd" id="1_2ty8w"]
+[ext_resource type="Script" path="res://Mae/scripts/player.gd" id="1_2ty8w"]
 [ext_resource type="Script" uid="uid://cakuaaegcnr5d" path="res://PlayerStateMachine.gd" id="2_rx0ls"]
-[ext_resource type="Script" uid="uid://d1gtpgqtwqy1j" path="res://Mae/scripts/kat_being_state.gd" id="3_i0f03"]
-[ext_resource type="Script" uid="uid://cvtu2s0fobk8u" path="res://Mae/scripts/mae_being_state.gd" id="4_d3xhf"]
-[ext_resource type="Script" uid="uid://buipq8x5k701o" path="res://Mae/scripts/idle_doing_state.gd" id="5_b4th5"]
-[ext_resource type="Script" uid="uid://cwsffl8hvpoi7" path="res://Mae/scripts/jump_doing_state.gd" id="6_uwlk8"]
-[ext_resource type="Script" uid="uid://c5mrkia2sd8ln" path="res://Mae/scripts/move_doing_state.gd" id="7_56usy"]
+[ext_resource type="Script" path="res://Mae/scripts/kat_being_state.gd" id="3_i0f03"]
+[ext_resource type="Script" path="res://Mae/scripts/mae_being_state.gd" id="4_d3xhf"]
+[ext_resource type="Script" path="res://Mae/scripts/idle_doing_state.gd" id="5_b4th5"]
+[ext_resource type="Script" path="res://Mae/scripts/jump_doing_state.gd" id="6_uwlk8"]
+[ext_resource type="Script" path="res://Mae/scripts/move_doing_state.gd" id="7_56usy"]
 [ext_resource type="Texture2D" uid="uid://noxxosyn03j7" path="res://Mae/Assets/Bug2-walk.png" id="8_xj186"]
 [ext_resource type="Texture2D" uid="uid://bi1ji6s268qm8" path="res://Mae/Assets/kat_idle.png" id="9_fkm6p"]
 [ext_resource type="Texture2D" uid="uid://bmjt7c4imf34m" path="res://Mae/Assets/knight.png" id="10_eooh1"]
@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://dpvajkyxm8b2q" path="res://Mae/Assets/Bug2-idle.png" id="12_2upko"]
 [ext_resource type="Texture2D" uid="uid://cf5ktetqrrw4r" path="res://Mae/Assets/slime_green.png" id="13_kg5ai"]
 [ext_resource type="Texture2D" uid="uid://b2ad6ihp1qeft" path="res://Mae/Assets/Poof.png" id="14_k45ae"]
-[ext_resource type="Script" uid="uid://dp43eq8w4mchl" path="res://Kat/Scripts/debug_text.gd" id="15_psrc6"]
+[ext_resource type="Script" path="res://Kat/Scripts/debug_text.gd" id="15_psrc6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oqet3"]
 size = Vector2(65, 121)
