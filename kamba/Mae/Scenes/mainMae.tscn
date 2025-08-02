@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cix0gasy8ijjl"]
 
 [ext_resource type="Texture2D" uid="uid://dpdeci5ugstd7" path="res://Mae/Assets/Untitled_Artwork.jpg" id="1_5b1e1"]
-[ext_resource type="PackedScene" uid="uid://bl2s2r0w4ao67" path="res://Mae/Scenes/player.tscn" id="3_lxpyl"]
+[ext_resource type="PackedScene" uid="uid://yjah0q8d3uuc" path="res://Mae/Scenes/player.tscn" id="3_lxpyl"]
 [ext_resource type="Texture2D" uid="uid://d2fyshjeoywo2" path="res://icon.svg" id="9_d3ttm"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_26jtx"]

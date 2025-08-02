@@ -1,12 +1,12 @@
-[gd_scene load_steps=58 format=3 uid="uid://yjah0q8d3uuc"]
+[gd_scene load_steps=68 format=3 uid="uid://yjah0q8d3uuc"]
 
-[ext_resource type="Script" path="res://Mae/Scenes/player.gd" id="1_2ty8w"]
-[ext_resource type="Script" path="res://PlayerStateMachine.gd" id="2_rx0ls"]
-[ext_resource type="Script" path="res://Mae/Scenes/kat_being_state.gd" id="3_i0f03"]
-[ext_resource type="Script" path="res://Mae/Scenes/mae_being_state.gd" id="4_d3xhf"]
-[ext_resource type="Script" path="res://Mae/Scenes/idle_doing_state.gd" id="5_b4th5"]
-[ext_resource type="Script" path="res://Mae/Scenes/jump_doing_state.gd" id="6_uwlk8"]
-[ext_resource type="Script" path="res://Mae/Scenes/move_doing_state.gd" id="7_56usy"]
+[ext_resource type="Script" uid="uid://dyeumabcobntd" path="res://Mae/scripts/player.gd" id="1_2ty8w"]
+[ext_resource type="Script" uid="uid://cakuaaegcnr5d" path="res://PlayerStateMachine.gd" id="2_rx0ls"]
+[ext_resource type="Script" uid="uid://d1gtpgqtwqy1j" path="res://Mae/scripts/kat_being_state.gd" id="3_i0f03"]
+[ext_resource type="Script" uid="uid://cvtu2s0fobk8u" path="res://Mae/scripts/mae_being_state.gd" id="4_d3xhf"]
+[ext_resource type="Script" uid="uid://buipq8x5k701o" path="res://Mae/scripts/idle_doing_state.gd" id="5_b4th5"]
+[ext_resource type="Script" uid="uid://cwsffl8hvpoi7" path="res://Mae/scripts/jump_doing_state.gd" id="6_uwlk8"]
+[ext_resource type="Script" uid="uid://c5mrkia2sd8ln" path="res://Mae/scripts/move_doing_state.gd" id="7_56usy"]
 [ext_resource type="Texture2D" uid="uid://noxxosyn03j7" path="res://Mae/Assets/Bug2-walk.png" id="8_xj186"]
 [ext_resource type="Texture2D" uid="uid://bi1ji6s268qm8" path="res://Mae/Assets/kat_idle.png" id="9_fkm6p"]
 [ext_resource type="Texture2D" uid="uid://bmjt7c4imf34m" path="res://Mae/Assets/knight.png" id="10_eooh1"]
@@ -14,10 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://dpvajkyxm8b2q" path="res://Mae/Assets/Bug2-idle.png" id="12_2upko"]
 [ext_resource type="Texture2D" uid="uid://cf5ktetqrrw4r" path="res://Mae/Assets/slime_green.png" id="13_kg5ai"]
 [ext_resource type="Texture2D" uid="uid://b2ad6ihp1qeft" path="res://Mae/Assets/Poof.png" id="14_k45ae"]
-
-[ext_resource type="Texture2D" uid="uid://da7wqaac8ttw5" path="res://Mae/Assets/ChonksterMarty.JPG" id="15_o3un3"]
-
-[ext_resource type="Script" path="res://Kat/Scenes/debug_text.gd" id="15_psrc6"]
+[ext_resource type="Script" uid="uid://dp43eq8w4mchl" path="res://Kat/Scripts/debug_text.gd" id="15_psrc6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oqet3"]
 size = Vector2(65, 121)
@@ -333,15 +330,50 @@ animations = [{
 script/source = "extends AnimatedSprite2D
 "
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jl8qk"]
-atlas = ExtResource("15_o3un3")
-region = Rect2(0, 0, 828, 1104)
+[sub_resource type="AtlasTexture" id="AtlasTexture_muk56"]
+atlas = ExtResource("14_k45ae")
+region = Rect2(512, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvq1g"]
+atlas = ExtResource("14_k45ae")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xnpie"]
+atlas = ExtResource("13_kg5ai")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vnppg"]
+atlas = ExtResource("13_kg5ai")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d1tgl"]
+atlas = ExtResource("13_kg5ai")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yyp3i"]
+atlas = ExtResource("13_kg5ai")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2ww4"]
+atlas = ExtResource("13_kg5ai")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_epdp1"]
+atlas = ExtResource("13_kg5ai")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6m36e"]
+atlas = ExtResource("13_kg5ai")
+region = Rect2(48, 24, 24, 24)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_f6adi"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jl8qk")
+"texture": SubResource("AtlasTexture_muk56")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kvq1g")
 }],
 "loop": true,
 "name": &"Arm",
@@ -350,6 +382,32 @@ animations = [{
 "frames": [],
 "loop": true,
 "name": &"Default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xnpie")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vnppg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d1tgl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yyp3i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c2ww4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_epdp1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6m36e")
+}],
+"loop": true,
+"name": &"Reloading",
 "speed": 5.0
 }]
 
@@ -372,6 +430,12 @@ collision_mask = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy_Kill_Zone"]
 position = Vector2(-14.5, 8.5)
 shape = SubResource("RectangleShape2D_oqet3")
+
+[node name="AttackStateMachine" type="Node" parent="."]
+
+[node name="KatAttackState" type="Node" parent="AttackStateMachine"]
+
+[node name="MaeAttackState" type="Node" parent="AttackStateMachine"]
 
 [node name="BeingStateMachine" type="Node" parent="." node_paths=PackedStringArray("current_state")]
 script = ExtResource("2_rx0ls")
@@ -400,16 +464,17 @@ script = ExtResource("7_56usy")
 position = Vector2(-12, 17)
 scale = Vector2(0.14375, 0.14375)
 sprite_frames = SubResource("SpriteFrames_vhoju")
-animation = &"KatIdle"
+animation = &"Poof"
 autoplay = "KatIdle"
 script = SubResource("GDScript_jk8u8")
 
 [node name="Arm" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
-position = Vector2(-320, 90)
-scale = Vector2(0.256354, 0.256354)
+position = Vector2(-320, 90.4348)
+scale = Vector2(23.352, 19.4564)
 sprite_frames = SubResource("SpriteFrames_f6adi")
-animation = &"Default"
+animation = &"Arm"
 autoplay = "Default"
+offset = Vector2(0, -1.69603)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-14, 19)
@@ -419,7 +484,6 @@ shape = SubResource("RectangleShape2D_i08o8")
 
 [node name="Timer" type="Timer" parent="."]
 
-[connection signal="Katshoot" from="BeingStateMachine/KatBeingState" to="." method="on_shoot"]
 [node name="DEBUG_TEXT" type="Label" parent="."]
 anchors_preset = -1
 anchor_right = 0.5
@@ -438,7 +502,7 @@ horizontal_alignment = 1
 script = ExtResource("15_psrc6")
 
 [connection signal="body_entered" from="Enemy_Kill_Zone" to="." method="enemy_kill_on_collision"]
-
+[connection signal="Katshoot" from="BeingStateMachine/KatBeingState" to="." method="on_shoot"]
 [connection signal="entered" from="BeingStateMachine/KatBeingState" to="DoingStateMachine" method="_on_persona_entered"]
 [connection signal="transitioned" from="BeingStateMachine/KatBeingState" to="BeingStateMachine" method="on_child_transitioned"]
 [connection signal="entered" from="BeingStateMachine/MaeBeingState" to="DoingStateMachine" method="_on_persona_entered"]
@@ -451,3 +515,4 @@ script = ExtResource("15_psrc6")
 [connection signal="transitioned" from="DoingStateMachine/MoveDoingState" to="DoingStateMachine" method="on_child_transitioned"]
 [connection signal="vectorChar" from="DoingStateMachine/MoveDoingState" to="." method="_on_move_doing_state_vector_char"]
 [connection signal="animation_looped" from="AnimatedSprite2D" to="DoingStateMachine" method="Poof_Done"]
+[connection signal="animation_looped" from="AnimatedSprite2D/Arm" to="BeingStateMachine/KatBeingState" method="_on_arm_animation_looped"]
