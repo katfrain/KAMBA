@@ -1,12 +1,12 @@
-[gd_scene load_steps=58 format=3 uid="uid://yjah0q8d3uuc"]
+[gd_scene load_steps=61 format=3 uid="uid://yjah0q8d3uuc"]
 
-[ext_resource type="Script" path="res://Mae/Scenes/player.gd" id="1_2ty8w"]
-[ext_resource type="Script" path="res://PlayerStateMachine.gd" id="2_rx0ls"]
-[ext_resource type="Script" path="res://Mae/Scenes/kat_being_state.gd" id="3_i0f03"]
-[ext_resource type="Script" path="res://Mae/Scenes/mae_being_state.gd" id="4_d3xhf"]
-[ext_resource type="Script" path="res://Mae/Scenes/idle_doing_state.gd" id="5_b4th5"]
-[ext_resource type="Script" path="res://Mae/Scenes/jump_doing_state.gd" id="6_uwlk8"]
-[ext_resource type="Script" path="res://Mae/Scenes/move_doing_state.gd" id="7_56usy"]
+[ext_resource type="Script" uid="uid://dulnhf4amr7nj" path="res://Mae/Scenes/player.gd" id="1_2ty8w"]
+[ext_resource type="Script" uid="uid://cakuaaegcnr5d" path="res://PlayerStateMachine.gd" id="2_rx0ls"]
+[ext_resource type="Script" uid="uid://cvnbnbf547llb" path="res://Mae/Scenes/kat_being_state.gd" id="3_i0f03"]
+[ext_resource type="Script" uid="uid://dbc7wxrb2fu1q" path="res://Mae/Scenes/mae_being_state.gd" id="4_d3xhf"]
+[ext_resource type="Script" uid="uid://cpnwcayukbsem" path="res://Mae/Scenes/idle_doing_state.gd" id="5_b4th5"]
+[ext_resource type="Script" uid="uid://cvaasbw1qg3w5" path="res://Mae/Scenes/jump_doing_state.gd" id="6_uwlk8"]
+[ext_resource type="Script" uid="uid://dfbx8nu2mafdk" path="res://Mae/Scenes/move_doing_state.gd" id="7_56usy"]
 [ext_resource type="Texture2D" uid="uid://noxxosyn03j7" path="res://Mae/Assets/Bug2-walk.png" id="8_xj186"]
 [ext_resource type="Texture2D" uid="uid://bi1ji6s268qm8" path="res://Mae/Assets/kat_idle.png" id="9_fkm6p"]
 [ext_resource type="Texture2D" uid="uid://bmjt7c4imf34m" path="res://Mae/Assets/knight.png" id="10_eooh1"]
@@ -14,10 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://dpvajkyxm8b2q" path="res://Mae/Assets/Bug2-idle.png" id="12_2upko"]
 [ext_resource type="Texture2D" uid="uid://cf5ktetqrrw4r" path="res://Mae/Assets/slime_green.png" id="13_kg5ai"]
 [ext_resource type="Texture2D" uid="uid://b2ad6ihp1qeft" path="res://Mae/Assets/Poof.png" id="14_k45ae"]
-
 [ext_resource type="Texture2D" uid="uid://da7wqaac8ttw5" path="res://Mae/Assets/ChonksterMarty.JPG" id="15_o3un3"]
-
-[ext_resource type="Script" path="res://Kat/Scenes/debug_text.gd" id="15_psrc6"]
+[ext_resource type="Script" uid="uid://cirkxghd0xwu0" path="res://Kat/Scenes/debug_text.gd" id="15_psrc6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oqet3"]
 size = Vector2(65, 121)
@@ -419,7 +417,6 @@ shape = SubResource("RectangleShape2D_i08o8")
 
 [node name="Timer" type="Timer" parent="."]
 
-[connection signal="Katshoot" from="BeingStateMachine/KatBeingState" to="." method="on_shoot"]
 [node name="DEBUG_TEXT" type="Label" parent="."]
 anchors_preset = -1
 anchor_right = 0.5
@@ -438,7 +435,7 @@ horizontal_alignment = 1
 script = ExtResource("15_psrc6")
 
 [connection signal="body_entered" from="Enemy_Kill_Zone" to="." method="enemy_kill_on_collision"]
-
+[connection signal="Katshoot" from="BeingStateMachine/KatBeingState" to="." method="on_shoot"]
 [connection signal="entered" from="BeingStateMachine/KatBeingState" to="DoingStateMachine" method="_on_persona_entered"]
 [connection signal="transitioned" from="BeingStateMachine/KatBeingState" to="BeingStateMachine" method="on_child_transitioned"]
 [connection signal="entered" from="BeingStateMachine/MaeBeingState" to="DoingStateMachine" method="_on_persona_entered"]

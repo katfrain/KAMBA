@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b48tqia1ryvet"]
 
 [ext_resource type="Texture2D" uid="uid://x5hib4mjfyj" path="res://Kat/Assets/char_placeholder.png" id="1_d6e5l"]
-[ext_resource type="Script" path="res://Kat/Scenes/character_placeholder.gd" id="1_f176f"]
+[ext_resource type="Script" uid="uid://s4l0sc5mu766" path="res://Kat/Scenes/character_placeholder.gd" id="1_f176f"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6lgmo"]
 radius = 152.0
