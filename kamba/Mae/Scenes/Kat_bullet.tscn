@@ -1,19 +1,122 @@
-[gd_scene load_steps=4 format=3 uid="uid://bk86rxp36ng3x"]
+[gd_scene load_steps=16 format=3 uid="uid://bk86rxp36ng3x"]
 
-[ext_resource type="Texture2D" uid="uid://f5q14ovlglb5" path="res://Kat/Assets/coin_placeholder.png" id="1_88iqt"]
-[ext_resource type="Script" uid="uid://bmh7tfavete2q" path="res://Mae/Scenes/kat_bullet.gd" id="1_fvq50"]
+[ext_resource type="Script" uid="uid://bvxni4hm41yvd" path="res://Mae/scripts/kat_bullet.gd" id="1_fvq50"]
+[ext_resource type="Texture2D" uid="uid://b2ad6ihp1qeft" path="res://Mae/Assets/Poof.png" id="2_6dlbd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8uhim"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rdgqg"]
+atlas = ExtResource("2_6dlbd")
+region = Rect2(768, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_25j7q"]
+atlas = ExtResource("2_6dlbd")
+region = Rect2(1024, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xwdb0"]
+atlas = ExtResource("2_6dlbd")
+region = Rect2(1280, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_66nrf"]
+atlas = ExtResource("2_6dlbd")
+region = Rect2(0, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g73p5"]
+atlas = ExtResource("2_6dlbd")
+region = Rect2(256, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ci1bh"]
+atlas = ExtResource("2_6dlbd")
+region = Rect2(512, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vs8va"]
+atlas = ExtResource("2_6dlbd")
+region = Rect2(768, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4paj8"]
+atlas = ExtResource("2_6dlbd")
+region = Rect2(1024, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bga4s"]
+atlas = ExtResource("2_6dlbd")
+region = Rect2(1280, 512, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nxc1f"]
+atlas = ExtResource("2_6dlbd")
+region = Rect2(0, 768, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_83o7l"]
+atlas = ExtResource("2_6dlbd")
+region = Rect2(768, 0, 256, 256)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0vpvh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rdgqg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_25j7q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xwdb0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_66nrf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g73p5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ci1bh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vs8va")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4paj8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bga4s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nxc1f")
+}],
+"loop": true,
+"name": &"Exploads",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_83o7l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="KatBullet" type="CharacterBody2D"]
 script = ExtResource("1_fvq50")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(1, -1)
-scale = Vector2(0.2, 0.202)
-texture = ExtResource("1_88iqt")
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 251
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(1, -2)
 scale = Vector2(1.66548, 1.72605)
 shape = SubResource("CircleShape2D_8uhim")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(1, -2)
+scale = Vector2(1.66548, 1.72605)
+shape = SubResource("CircleShape2D_8uhim")
+
+[node name="BulletAnimation" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0vpvh")
+animation = &"Exploads"
+autoplay = "default"
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="animation_looped" from="BulletAnimation" to="." method="_on_bullet_animation_animation_looped"]

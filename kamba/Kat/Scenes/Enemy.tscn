@@ -1,6 +1,6 @@
 [gd_scene load_steps=26 format=3 uid="uid://c4lsv75wh0874"]
 
-[ext_resource type="Script" path="res://Kat/Scenes/enemy.gd" id="1_mtqva"]
+[ext_resource type="Script" uid="uid://dijrny7t3e5qu" path="res://Kat/Scripts/enemy.gd" id="1_mtqva"]
 [ext_resource type="Texture2D" uid="uid://dpvajkyxm8b2q" path="res://Mae/Assets/Bug2-idle.png" id="1_vgkv0"]
 [ext_resource type="Texture2D" uid="uid://noxxosyn03j7" path="res://Mae/Assets/Bug2-walk.png" id="2_pd163"]
 [ext_resource type="Script" path="res://EnemyStateMachine.gd" id="3_q8fjo"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://Kat/Scenes/Enemy_attack.gd" id="8_lj4a3"]
 [ext_resource type="Script" path="res://Kat/Scenes/label.gd" id="9_nwbcv"]
 [ext_resource type="Script" path="res://Kat/Scenes/ray_cast_2d.gd" id="10_4c8or"]
+
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ue7qn"]
 atlas = ExtResource("1_vgkv0")
