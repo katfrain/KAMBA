@@ -1,17 +1,15 @@
-[gd_scene load_steps=26 format=3 uid="uid://c4lsv75wh0874"]
+[gd_scene load_steps=23 format=3 uid="uid://c4lsv75wh0874"]
 
-[ext_resource type="Script" path="res://Kat/Scenes/enemy.gd" id="1_mtqva"]
+[ext_resource type="Script" uid="uid://dijrny7t3e5qu" path="res://Kat/Scripts/enemy.gd" id="1_mtqva"]
 [ext_resource type="Texture2D" uid="uid://dpvajkyxm8b2q" path="res://Mae/Assets/Bug2-idle.png" id="1_vgkv0"]
 [ext_resource type="Texture2D" uid="uid://noxxosyn03j7" path="res://Mae/Assets/Bug2-walk.png" id="2_pd163"]
-[ext_resource type="Script" path="res://EnemyStateMachine.gd" id="3_q8fjo"]
-[ext_resource type="Script" path="res://Kat/Scenes/Enemy_idle.gd" id="4_iysdc"]
-[ext_resource type="Script" path="res://Kat/Scenes/Enemy_chase.gd" id="5_mi1fc"]
-[ext_resource type="Script" path="res://Kat/Scenes/LoS.gd" id="6_e821s"]
-[ext_resource type="Script" path="res://Kat/Scenes/Enemy_charge.gd" id="7_gvs0u"]
-[ext_resource type="Script" path="res://Kat/Scenes/debug_text.gd" id="7_ja812"]
-[ext_resource type="Script" path="res://Kat/Scenes/Enemy_attack.gd" id="8_lj4a3"]
-[ext_resource type="Script" path="res://Kat/Scenes/label.gd" id="9_nwbcv"]
-[ext_resource type="Script" path="res://Kat/Scenes/ray_cast_2d.gd" id="10_4c8or"]
+[ext_resource type="Script" uid="uid://d3xhfapwhtq1c" path="res://EnemyStateMachine.gd" id="3_q8fjo"]
+[ext_resource type="Script" uid="uid://0tthflpwe5xs" path="res://Kat/Scripts/Enemy_idle.gd" id="4_iysdc"]
+[ext_resource type="Script" uid="uid://ccdcnt2s32jwv" path="res://Kat/Scripts/Enemy_chase.gd" id="5_mi1fc"]
+[ext_resource type="Script" uid="uid://up0b432wud28" path="res://Kat/Scripts/LoS.gd" id="6_e821s"]
+[ext_resource type="Script" uid="uid://dp43eq8w4mchl" path="res://Kat/Scripts/debug_text.gd" id="7_ja812"]
+[ext_resource type="Script" uid="uid://qrj2c8nr37pu" path="res://Kat/Scripts/label.gd" id="9_nwbcv"]
+[ext_resource type="Script" uid="uid://begu7rn3rdwab" path="res://Kat/Scripts/ray_cast_2d.gd" id="10_4c8or"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ue7qn"]
 atlas = ExtResource("1_vgkv0")
@@ -79,14 +77,11 @@ animations = [{
 radius = 21.0
 height = 66.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_nsq6j"]
-radius = 4087.48
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_c6uc4"]
-size = Vector2(609.667, 253.333)
-
 [sub_resource type="LabelSettings" id="LabelSettings_ih70d"]
 line_spacing = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nsq6j"]
+radius = 4087.48
 
 [sub_resource type="LabelSettings" id="LabelSettings_3p2xb"]
 line_spacing = 5.0
@@ -119,11 +114,38 @@ script = ExtResource("4_iysdc")
 [node name="Chase" type="Node" parent="State_Machine"]
 script = ExtResource("5_mi1fc")
 
-[node name="Charge" type="Node" parent="State_Machine"]
-script = ExtResource("7_gvs0u")
+[node name="Rays" type="Node" parent="."]
 
-[node name="Attack" type="Node" parent="State_Machine"]
-script = ExtResource("8_lj4a3")
+[node name="DEBUG TEXT" type="Label" parent="."]
+offset_left = -51.0
+offset_top = -110.0
+offset_right = 58.0
+offset_bottom = -65.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "DEBUG"
+label_settings = SubResource("LabelSettings_ih70d")
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("7_ja812")
+
+[node name="Range" type="Area2D" parent="."]
+position = Vector2(2, 1)
+scale = Vector2(0.15, 0.15)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Range"]
+position = Vector2(-7, 4)
+shape = SubResource("CircleShape2D_nsq6j")
+
+[node name="Exclamation_Point" type="Label" parent="."]
+offset_left = -20.0
+offset_top = -80.0
+offset_right = 20.0
+offset_bottom = -35.0
+label_settings = SubResource("LabelSettings_3p2xb")
+horizontal_alignment = 1
+script = ExtResource("9_nwbcv")
 
 [node name="Player_Raycast" type="RayCast2D" parent="."]
 target_position = Vector2(-349, 0)
@@ -139,73 +161,20 @@ script = ExtResource("10_4c8or")
 position = Vector2(24, 1)
 script = ExtResource("10_4c8or")
 
-[node name="Chase Range" type="Area2D" parent="."]
-position = Vector2(2, 1)
-scale = Vector2(0.15, 0.15)
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Chase Range"]
-position = Vector2(-7, 4)
-shape = SubResource("CircleShape2D_nsq6j")
-
-[node name="Attack Range" type="Area2D" parent="."]
-position = Vector2(2, 1)
-scale = Vector2(0.15, 0.15)
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Attack Range"]
-position = Vector2(0, -6.667)
-scale = Vector2(2, 1)
-shape = SubResource("RectangleShape2D_c6uc4")
-
-[node name="Charge_Timer" type="Timer" parent="."]
-wait_time = 0.5
-one_shot = true
-
-[node name="DEBUG TEXT" type="Label" parent="."]
-offset_left = -51.0
-offset_top = -110.0
-offset_right = 58.0
-offset_bottom = -65.0
-size_flags_horizontal = 4
-size_flags_vertical = 0
-text = "DEBUG"
-label_settings = SubResource("LabelSettings_ih70d")
-horizontal_alignment = 1
-vertical_alignment = 1
-script = ExtResource("7_ja812")
-
-[node name="Exclamation_Point" type="Label" parent="."]
-offset_left = -20.0
-offset_top = -80.0
-offset_right = 20.0
-offset_bottom = -35.0
-label_settings = SubResource("LabelSettings_3p2xb")
-horizontal_alignment = 1
-script = ExtResource("9_nwbcv")
-
 [connection signal="stop_chase_upon_death" from="." to="State_Machine/Chase" method="chase_end"]
 [connection signal="debug_text_idle" from="State_Machine/Idle" to="DEBUG TEXT" method="debug_text_idle"]
 [connection signal="transitioned" from="State_Machine/Idle" to="State_Machine" method="on_child_transitioned"]
 [connection signal="debug_text_walk" from="State_Machine/Chase" to="DEBUG TEXT" method="debug_text_walk"]
 [connection signal="transitioned" from="State_Machine/Chase" to="State_Machine" method="on_child_transitioned"]
-[connection signal="debug_text_charge" from="State_Machine/Charge" to="DEBUG TEXT" method="debug_text_charge"]
-[connection signal="debug_text_attack" from="State_Machine/Attack" to="DEBUG TEXT" method="debug_text_attack"]
+[connection signal="body_entered" from="Range" to="State_Machine/Chase" method="_on_range_body_entered"]
+[connection signal="body_entered" from="Range" to="Player_Raycast" method="_on_range_body_entered"]
+[connection signal="body_exited" from="Range" to="State_Machine/Chase" method="_on_range_body_exited"]
+[connection signal="body_exited" from="Range" to="Player_Raycast" method="_on_range_body_exited"]
 [connection signal="end_chase" from="Player_Raycast" to="State_Machine/Chase" method="chase_end"]
 [connection signal="end_chase" from="Player_Raycast" to="Exclamation_Point" method="chase_ended"]
 [connection signal="initiate_chase" from="Player_Raycast" to="State_Machine/Idle" method="chase_start"]
 [connection signal="initiate_chase" from="Player_Raycast" to="Exclamation_Point" method="chase_triggered"]
 [connection signal="ground" from="Left_Ground_Check" to="State_Machine/Chase" method="ground"]
-[connection signal="ground" from="Left_Ground_Check" to="State_Machine/Charge" method="ground"]
 [connection signal="no_ground" from="Left_Ground_Check" to="State_Machine/Chase" method="no_ground"]
-[connection signal="no_ground" from="Left_Ground_Check" to="State_Machine/Charge" method="no_ground"]
 [connection signal="ground" from="Right_Ground_Check" to="State_Machine/Chase" method="ground"]
 [connection signal="no_ground" from="Right_Ground_Check" to="State_Machine/Chase" method="no_ground"]
-[connection signal="body_entered" from="Chase Range" to="State_Machine/Chase" method="_on_range_body_entered"]
-[connection signal="body_entered" from="Chase Range" to="Player_Raycast" method="_on_range_body_entered"]
-[connection signal="body_exited" from="Chase Range" to="State_Machine/Chase" method="_on_range_body_exited"]
-[connection signal="body_exited" from="Chase Range" to="Player_Raycast" method="_on_range_body_exited"]
-[connection signal="body_entered" from="Attack Range" to="State_Machine/Chase" method="_on_range_body_entered_attack_range"]
-[connection signal="body_entered" from="Attack Range" to="State_Machine/Charge" method="_on_range_body_entered"]
-[connection signal="body_exited" from="Attack Range" to="State_Machine/Charge" method="_on_range_body_exited"]
-[connection signal="timeout" from="Charge_Timer" to="State_Machine/Charge" method="_on_charge_timeout"]
