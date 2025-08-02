@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://bk86rxp36ng3x"]
 
-[ext_resource type="Script" uid="uid://bvxni4hm41yvd" path="res://Mae/scripts/kat_bullet.gd" id="1_fvq50"]
+[ext_resource type="Script" path="res://Mae/scripts/kat_bullet.gd" id="1_fvq50"]
 [ext_resource type="Texture2D" uid="uid://b2ad6ihp1qeft" path="res://Mae/Assets/Poof.png" id="2_6dlbd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8uhim"]
