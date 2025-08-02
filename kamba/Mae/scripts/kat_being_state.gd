@@ -13,7 +13,7 @@ signal Katshoot(bullet)
 		return $"../../AnimatedSprite2D/Arm"
 
 const bulletPath = preload("res://Mae/Scenes/Kat_bullet.tscn")
-
+var  canAttack = true
 
 func Enter():
 	entered.emit(self)
@@ -29,5 +29,16 @@ func Update(delta):
 		transitioned.emit("MaeBeingState")
 	
 func Attack():
-	Katshoot.emit(bulletPath)
+	if canAttack:
+		Katshoot.emit(bulletPath)
+		canAttack = false
+	else:
+		print("reloading")	
+		arm.play("Default")
+
+
+func _on_arm_animation_looped() -> void:
+	arm.play("Arm")
+	canAttack = true
+
 	

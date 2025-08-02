@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://c3psq8tpronfm"]
 
-[ext_resource type="Script" path="res://Kat/Scenes/moving_platform.gd" id="1_tw8mf"]
+[ext_resource type="Script" uid="uid://c8oj42b7b3ofi" path="res://Kat/Scripts/moving_platform.gd" id="1_tw8mf"]
 [ext_resource type="Texture2D" uid="uid://c1axs2788dcy" path="res://Kat/Assets/tileset_placeholder.png" id="2_gqwpo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ynnj4"]

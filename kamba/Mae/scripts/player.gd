@@ -61,7 +61,8 @@ func win():
 	can_move = false
 
 func on_shoot(bullet):
-	arm.play("Arm")
+	arm.play("Reloading")
+	
 	var spawedBullet = bullet.instantiate() 
 	if not spawedBullet: 
 		print("Failed to instantiate bullet.") 
@@ -78,4 +79,3 @@ func on_shoot(bullet):
 func enemy_kill_on_collision(body: Node2D) -> void:
 	fall_death(body)
 	#add death animation here
-
