@@ -145,7 +145,7 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSet" id="TileSet_p72x0"]
 tile_size = Vector2i(32, 32)
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 2
 physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_3rh5l")
 
@@ -212,14 +212,10 @@ offset = Vector2(256, 0)
 [node name="character_placeholder" parent="Character" instance=ExtResource("2_a7sxh")]
 position = Vector2(-1189, 298)
 scale = Vector2(0.3375, 0.3375)
-collision_layer = 2
-collision_mask = 7
+collision_mask = 255
 
 [node name="Player" parent="Character" instance=ExtResource("6_ldmg1")]
 position = Vector2(131, 327)
-collision_layer = 2
-collision_mask = 5
-
 [node name="Camera2D2" type="Camera2D" parent="Character/Player"]
 position = Vector2(113.333, 31.5556)
 scale = Vector2(1.35, 1.35)
@@ -390,8 +386,7 @@ texture = ExtResource("13_tm7jd")
 [node name="win_zone" parent="Zones" instance=ExtResource("6_a5nrf")]
 position = Vector2(7259, 507)
 scale = Vector2(0.45, 0.45)
-collision_layer = 4
-collision_mask = 2
+collision_layer = 64
 script = ExtResource("12_7eeee")
 
 [node name="coin_label_win" type="Label" parent="Zones/win_zone"]
@@ -418,8 +413,7 @@ texture = ExtResource("10_uwcpk")
 [node name="kill_zone" type="Area2D" parent="Zones"]
 position = Vector2(4416, 411)
 scale = Vector2(0.0342878, 3.17808)
-collision_layer = 4
-collision_mask = 2
+collision_layer = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Zones/kill_zone"]
 position = Vector2(-19409.3, 118.498)
@@ -430,6 +424,8 @@ shape = SubResource("RectangleShape2D_yedgb")
 [node name="right_border" type="StaticBody2D" parent="Borders"]
 position = Vector2(577, 3)
 scale = Vector2(2.25, 2.25)
+collision_layer = 2
+collision_mask = 255
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/right_border"]
 position = Vector2(3087.11, 151.222)
@@ -439,6 +435,8 @@ shape = SubResource("RectangleShape2D_6gyas")
 position = Vector2(-53, -357)
 rotation = 1.5708
 scale = Vector2(0.450002, 2.25)
+collision_layer = 2
+collision_mask = 255
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/left_border"]
 position = Vector2(1557.77, -13.7778)
@@ -450,16 +448,22 @@ shape = SubResource("RectangleShape2D_gmr7r")
 [node name="collectable" parent="Collectables" instance=ExtResource("12_4hsfj")]
 position = Vector2(2946, 85)
 scale = Vector2(0.335296, 0.335296)
+collision_layer = 4
+collision_mask = 1
 script = ExtResource("14_em6et")
 
 [node name="collectable2" parent="Collectables" instance=ExtResource("12_4hsfj")]
 position = Vector2(4081, 199)
 scale = Vector2(0.335296, 0.335296)
+collision_layer = 4
+collision_mask = 1
 script = ExtResource("14_em6et")
 
 [node name="collectable3" parent="Collectables" instance=ExtResource("12_4hsfj")]
 position = Vector2(5387, 400)
 scale = Vector2(0.335296, 0.335296)
+collision_layer = 4
+collision_mask = 1
 script = ExtResource("14_em6et")
 
 [node name="Enemies" type="Node" parent="."]

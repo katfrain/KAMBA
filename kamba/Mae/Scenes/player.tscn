@@ -418,6 +418,7 @@ size = Vector2(27.352, 75.2885)
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(-14, -35)
+collision_mask = 255
 script = ExtResource("1_2ty8w")
 
 [node name="Marker2D" type="Marker2D" parent="."]

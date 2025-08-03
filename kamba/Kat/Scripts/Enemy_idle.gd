@@ -16,7 +16,6 @@ func Exit() -> void:
 	pass
 	
 func chase_start():
-
 	transitioned.emit("Chase")
 #the logic being executed at each frame of the game	
 func Update(delta: float) -> void:
