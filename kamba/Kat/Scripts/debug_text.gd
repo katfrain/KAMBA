@@ -19,6 +19,6 @@ func debug_text_attack() -> void:
 	text = "ATTACK"
 	
 func debug_text_cooldown() -> void:
-	text = "ATTACK"
+	text = "COOLDOWN"
 #func _process(delta: float) -> void:
 	#text = str(enemy.velocity.x)

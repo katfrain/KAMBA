@@ -2,10 +2,14 @@ extends CharacterBody2D
 
 @onready var Enemy: CharacterBody2D = $"."
 @onready var state_machine: Node = $State_Machine
+
+@export var damage_amt = 20
+
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 var can_move: bool = true
 var direction: bool = false # false = left, true = right
 signal stop_chase_upon_death
+signal damage_player(damage_amt: int)
 
 func _ready():
 	set_direction(false)
@@ -29,4 +33,10 @@ func get_direction() -> bool:
 func set_direction(new_direction: bool) -> void:
 	direction = new_direction
 	print('Facing right = ' + str(direction))
+	
+func attack_player() -> void:
+	print('In enemy, attempting to signal player')
+	damage_player.emit(damage_amt)
+	
+	
 	
