@@ -98,10 +98,10 @@ animations = [{
 [node name="KatBullet" type="CharacterBody2D"]
 script = ExtResource("1_fvq50")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="KatBulletArea" type="Area2D" parent="."]
 collision_mask = 250
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="KatBulletArea"]
 position = Vector2(1, -2)
 scale = Vector2(1.66548, 1.72605)
 shape = SubResource("CircleShape2D_8uhim")
@@ -117,6 +117,6 @@ sprite_frames = SubResource("SpriteFrames_0vpvh")
 animation = &"Exploads"
 autoplay = "default"
 
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="area_entered" from="KatBulletArea" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="KatBulletArea" to="." method="_on_area_2d_body_entered"]
 [connection signal="animation_looped" from="BulletAnimation" to="." method="_on_bullet_animation_animation_looped"]

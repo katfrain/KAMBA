@@ -1,8 +1,9 @@
-[gd_scene load_steps=26 format=3 uid="uid://c4lsv75wh0874"]
+[gd_scene load_steps=33 format=3 uid="uid://c4lsv75wh0874"]
 
 [ext_resource type="Script" uid="uid://dijrny7t3e5qu" path="res://Kat/Scripts/enemy.gd" id="1_mtqva"]
 [ext_resource type="Texture2D" uid="uid://dpvajkyxm8b2q" path="res://Mae/Assets/Bug2-idle.png" id="1_vgkv0"]
 [ext_resource type="Texture2D" uid="uid://noxxosyn03j7" path="res://Mae/Assets/Bug2-walk.png" id="2_pd163"]
+[ext_resource type="Texture2D" uid="uid://b2ad6ihp1qeft" path="res://Mae/Assets/Poof.png" id="2_v34d4"]
 [ext_resource type="Script" uid="uid://d3xhfapwhtq1c" path="res://EnemyStateMachine.gd" id="3_q8fjo"]
 [ext_resource type="Script" uid="uid://0tthflpwe5xs" path="res://Kat/Scripts/Enemy_idle.gd" id="4_iysdc"]
 [ext_resource type="Script" uid="uid://ccdcnt2s32jwv" path="res://Kat/Scripts/Enemy_chase.gd" id="5_mi1fc"]
@@ -12,6 +13,30 @@
 [ext_resource type="Script" path="res://Kat/Scenes/Enemy_attack.gd" id="8_lj4a3"]
 [ext_resource type="Script" uid="uid://qrj2c8nr37pu" path="res://Kat/Scripts/label.gd" id="9_nwbcv"]
 [ext_resource type="Script" uid="uid://begu7rn3rdwab" path="res://Kat/Scripts/ray_cast_2d.gd" id="10_4c8or"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8v6uj"]
+atlas = ExtResource("2_v34d4")
+region = Rect2(1024, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t5dc1"]
+atlas = ExtResource("2_v34d4")
+region = Rect2(1280, 0, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5tu60"]
+atlas = ExtResource("2_v34d4")
+region = Rect2(0, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fa7ec"]
+atlas = ExtResource("2_v34d4")
+region = Rect2(256, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xwjr2"]
+atlas = ExtResource("2_v34d4")
+region = Rect2(512, 256, 256, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rryhc"]
+atlas = ExtResource("2_v34d4")
+region = Rect2(768, 256, 256, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ue7qn"]
 atlas = ExtResource("1_vgkv0")
@@ -43,6 +68,29 @@ region = Rect2(0, 480, 480, 480)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_daa1t"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8v6uj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t5dc1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5tu60")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fa7ec")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xwjr2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rryhc")
+}],
+"loop": true,
+"name": &"Death",
+"speed": 10.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ue7qn")
@@ -99,10 +147,8 @@ script = ExtResource("1_mtqva")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.15, 0.15)
 sprite_frames = SubResource("SpriteFrames_daa1t")
-animation = &"Enemy_Walk"
+animation = &"Death"
 autoplay = "Enemy_Idle"
-frame = 1
-frame_progress = 0.899336
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_eptvq")
@@ -127,7 +173,6 @@ script = ExtResource("8_lj4a3")
 
 [node name="Player_Raycast" type="RayCast2D" parent="."]
 target_position = Vector2(-349, 0)
-collision_mask = 3
 collide_with_areas = true
 script = ExtResource("6_e821s")
 
@@ -152,6 +197,7 @@ shape = SubResource("CircleShape2D_nsq6j")
 [node name="Attack Range" type="Area2D" parent="."]
 position = Vector2(2, 1)
 scale = Vector2(0.15, 0.15)
+collision_mask = 129
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Attack Range"]
 position = Vector2(0, -6.667)
@@ -185,6 +231,7 @@ horizontal_alignment = 1
 script = ExtResource("9_nwbcv")
 
 [connection signal="stop_chase_upon_death" from="." to="State_Machine/Chase" method="chase_end"]
+[connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]
 [connection signal="debug_text_idle" from="State_Machine/Idle" to="DEBUG TEXT" method="debug_text_idle"]
 [connection signal="transitioned" from="State_Machine/Idle" to="State_Machine" method="on_child_transitioned"]
 [connection signal="debug_text_walk" from="State_Machine/Chase" to="DEBUG TEXT" method="debug_text_walk"]
@@ -205,6 +252,7 @@ script = ExtResource("9_nwbcv")
 [connection signal="body_entered" from="Chase Range" to="Player_Raycast" method="_on_range_body_entered"]
 [connection signal="body_exited" from="Chase Range" to="State_Machine/Chase" method="_on_range_body_exited"]
 [connection signal="body_exited" from="Chase Range" to="Player_Raycast" method="_on_range_body_exited"]
+[connection signal="area_entered" from="Attack Range" to="." method="_on_attack_range_area_entered"]
 [connection signal="body_entered" from="Attack Range" to="State_Machine/Chase" method="_on_range_body_entered_attack_range"]
 [connection signal="body_entered" from="Attack Range" to="State_Machine/Charge" method="_on_range_body_entered"]
 [connection signal="body_exited" from="Attack Range" to="State_Machine/Charge" method="_on_range_body_exited"]
