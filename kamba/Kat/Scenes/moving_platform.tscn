@@ -241,6 +241,7 @@ position = Vector2(31, 16)
 script = ExtResource("1_tw8mf")
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
+collision_layer = 2
 collision_mask = 3
 
 [node name="TileMapLayer" type="TileMapLayer" parent="AnimatableBody2D"]

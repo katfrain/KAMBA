@@ -1,20 +1,20 @@
 [gd_scene load_steps=25 format=4 uid="uid://dqodpb183qsgy"]
 
-[ext_resource type="Script" path="res://Kat/Scripts/level.gd" id="1_grox1"]
+[ext_resource type="Script" uid="uid://c5g061by0ewmy" path="res://Kat/Scripts/level.gd" id="1_grox1"]
 [ext_resource type="PackedScene" uid="uid://b48tqia1ryvet" path="res://Kat/Scenes/character_placeholder.tscn" id="2_a7sxh"]
 [ext_resource type="Texture2D" uid="uid://dpdeci5ugstd7" path="res://Mae/Assets/Untitled_Artwork.jpg" id="2_sbr0j"]
 [ext_resource type="Texture2D" uid="uid://c1axs2788dcy" path="res://Kat/Assets/tileset_placeholder.png" id="3_i2b84"]
-[ext_resource type="Script" path="res://Kat/Scripts/panel.gd" id="4_p33ya"]
+[ext_resource type="Script" uid="uid://c62pi0nhtve5m" path="res://Kat/Scripts/panel.gd" id="4_p33ya"]
 [ext_resource type="PackedScene" uid="uid://djbjda52ea6bu" path="res://Kat/Scenes/win_zone.tscn" id="6_a5nrf"]
 [ext_resource type="PackedScene" uid="uid://yjah0q8d3uuc" path="res://Mae/Scenes/player.tscn" id="6_ldmg1"]
-[ext_resource type="Script" path="res://Kat/Scripts/timer.gd" id="6_q58tk"]
-[ext_resource type="Script" path="res://Kat/Scripts/win_time.gd" id="6_qeym0"]
+[ext_resource type="Script" uid="uid://d1vjn0ecii14k" path="res://Kat/Scripts/timer.gd" id="6_q58tk"]
+[ext_resource type="Script" uid="uid://brr1h6vpdlbvu" path="res://Kat/Scripts/win_time.gd" id="6_qeym0"]
 [ext_resource type="PackedScene" uid="uid://c3psq8tpronfm" path="res://Kat/Scenes/moving_platform.tscn" id="7_o3oyj"]
-[ext_resource type="Script" path="res://Kat/Scripts/coin_label.gd" id="9_kpqre"]
+[ext_resource type="Script" uid="uid://c6r8nr2m3q1gm" path="res://Kat/Scripts/coin_label.gd" id="9_kpqre"]
 [ext_resource type="Texture2D" uid="uid://f5q14ovlglb5" path="res://Kat/Assets/coin_placeholder.png" id="10_uwcpk"]
 [ext_resource type="PackedScene" uid="uid://cm37f6ply2xc8" path="res://Kat/Scenes/collectable.tscn" id="12_4hsfj"]
-[ext_resource type="Script" path="res://Kat/Scripts/win_zone.gd" id="12_7eeee"]
-[ext_resource type="Script" path="res://Kat/Scripts/collectable.gd" id="14_em6et"]
+[ext_resource type="Script" uid="uid://dmrcu83aikjal" path="res://Kat/Scripts/win_zone.gd" id="12_7eeee"]
+[ext_resource type="Script" uid="uid://bd2qgomgj5kn2" path="res://Kat/Scripts/collectable.gd" id="14_em6et"]
 [ext_resource type="PackedScene" uid="uid://c4lsv75wh0874" path="res://Kat/Scenes/Enemy.tscn" id="16_oiaoc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3rh5l"]
@@ -143,7 +143,7 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSet" id="TileSet_p72x0"]
 tile_size = Vector2i(32, 32)
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 2
 physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_3rh5l")
 
@@ -210,13 +210,10 @@ offset = Vector2(256, 0)
 [node name="character_placeholder" parent="Character" instance=ExtResource("2_a7sxh")]
 position = Vector2(-1189, 298)
 scale = Vector2(0.3375, 0.3375)
-collision_layer = 2
-collision_mask = 7
+collision_mask = 255
 
 [node name="Player" parent="Character" instance=ExtResource("6_ldmg1")]
 position = Vector2(131, 327)
-collision_layer = 2
-collision_mask = 13
 
 [node name="Camera2D2" type="Camera2D" parent="Character/Player"]
 position = Vector2(113.333, 31.5556)
@@ -375,8 +372,7 @@ texture = ExtResource("10_uwcpk")
 [node name="win_zone" parent="Zones" instance=ExtResource("6_a5nrf")]
 position = Vector2(7259, 507)
 scale = Vector2(0.45, 0.45)
-collision_layer = 4
-collision_mask = 2
+collision_layer = 64
 script = ExtResource("12_7eeee")
 
 [node name="coin_label_win" type="Label" parent="Zones/win_zone"]
@@ -404,8 +400,7 @@ texture = ExtResource("10_uwcpk")
 [node name="kill_zone" type="Area2D" parent="Zones"]
 position = Vector2(4416, 411)
 scale = Vector2(0.0342878, 3.17808)
-collision_layer = 4
-collision_mask = 2
+collision_layer = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Zones/kill_zone"]
 position = Vector2(-19409.3, 118.498)
@@ -416,6 +411,8 @@ shape = SubResource("RectangleShape2D_yedgb")
 [node name="right_border" type="StaticBody2D" parent="Borders"]
 position = Vector2(577, 3)
 scale = Vector2(2.25, 2.25)
+collision_layer = 2
+collision_mask = 255
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/right_border"]
 position = Vector2(3087.11, 151.222)
@@ -425,6 +422,8 @@ shape = SubResource("RectangleShape2D_6gyas")
 position = Vector2(-53, -357)
 rotation = 1.5708
 scale = Vector2(0.450002, 2.25)
+collision_layer = 2
+collision_mask = 255
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/left_border"]
 position = Vector2(1557.77, -13.7778)
@@ -436,16 +435,22 @@ shape = SubResource("RectangleShape2D_gmr7r")
 [node name="collectable" parent="Collectables" instance=ExtResource("12_4hsfj")]
 position = Vector2(2946, 85)
 scale = Vector2(0.335296, 0.335296)
+collision_layer = 4
+collision_mask = 1
 script = ExtResource("14_em6et")
 
 [node name="collectable2" parent="Collectables" instance=ExtResource("12_4hsfj")]
 position = Vector2(4081, 199)
 scale = Vector2(0.335296, 0.335296)
+collision_layer = 4
+collision_mask = 1
 script = ExtResource("14_em6et")
 
 [node name="collectable3" parent="Collectables" instance=ExtResource("12_4hsfj")]
 position = Vector2(5387, 400)
 scale = Vector2(0.335296, 0.335296)
+collision_layer = 4
+collision_mask = 1
 script = ExtResource("14_em6et")
 
 [node name="Enemies" type="Node" parent="."]
