@@ -14,15 +14,14 @@ func _physics_process(delta: float) -> void:
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 		print(area.name)
-		if area.name != "Enemy_Kill_Zone":
-			bullet_animation.play("Exploads")
-		
+		bullet_animation.play("Exploads")
+		speed = 0
 	
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	print(body.name)
-	if body.name != "Player":
-		bullet_animation.play("Exploads")
+	bullet_animation.play("Exploads")
+	speed = 0
 		
 	
 func _on_bullet_animation_animation_looped() -> void:
