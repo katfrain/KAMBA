@@ -6,16 +6,19 @@ signal Katshoot(bullet)
 
 @export var animated_sprite: AnimatableBody2D: 
 	get: 
-		return $"../../AnimatedSprite2D"
+		return $"../../KatAndMaeAnimations"
 
-@export var arm: AnimatableBody2D: 
+@export var KatPaintbrush: AnimatableBody2D: 
 	get: 
-		return $"../../AnimatedSprite2D/Arm"
+		return $"../../KatAndMaeAnimations/KatPaintbrush"
+@onready var mae_dance: AnimatedSprite2D = $"../../KatAndMaeAnimations/MaeDance"
 
 const bulletPath = preload("res://Mae/Scenes/Kat_bullet.tscn")
 var  canAttack = true
 
 func Enter():
+	KatPaintbrush.show()
+	mae_dance.hide()
 	entered.emit(self)
 	
 func Exit():
@@ -34,11 +37,11 @@ func Attack():
 		canAttack = false
 	else:
 		print("reloading")	
-		arm.play("Default")
+		KatPaintbrush.play("Default")
 
 
 func _on_arm_animation_looped() -> void:
-	arm.play("Arm")
+	KatPaintbrush.stop()
 	canAttack = true
 
 	

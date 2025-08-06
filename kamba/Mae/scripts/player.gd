@@ -5,11 +5,13 @@ extends CharacterBody2D
 @onready var Marker = $Marker2D
 @export var animated_sprite: AnimatableBody2D: 
 	get: 
-		return $AnimatedSprite2D
+		return $KatAndMaeAnimations
 @export var arm: AnimatableBody2D: 
 	get: 
-		return $AnimatedSprite2D/Arm
+		return $KatAndMaeAnimations/KatPaintbrush
+
 @export var total_health:int = 100
+
 
 
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")

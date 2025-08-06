@@ -4,7 +4,7 @@ extends Node
 @export var current_state: State
 @export var animated_sprite: AnimatableBody2D: 
 	get: 
-		return $"../AnimatedSprite2D"
+		return $"../KatAndMaeAnimations"
 
 
 var states: Dictionary = {}

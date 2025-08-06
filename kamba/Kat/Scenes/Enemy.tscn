@@ -194,6 +194,7 @@ script = ExtResource("10_4c8or")
 [node name="Chase Range" type="Area2D" parent="."]
 position = Vector2(2, 1)
 scale = Vector2(0.15, 0.15)
+collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chase Range"]
 position = Vector2(-7, 4)
@@ -202,6 +203,7 @@ shape = SubResource("CircleShape2D_nsq6j")
 [node name="Attack Range" type="Area2D" parent="."]
 position = Vector2(2, 1)
 scale = Vector2(0.15, 0.15)
+collision_layer = 8
 collision_mask = 129
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Attack Range"]

@@ -437,7 +437,7 @@ position = Vector2(-53, -357)
 rotation = 1.5708
 scale = Vector2(0.450002, 2.25)
 collision_layer = 2
-collision_mask = 255
+collision_mask = 129
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/left_border"]
 position = Vector2(1557.77, -13.7778)
