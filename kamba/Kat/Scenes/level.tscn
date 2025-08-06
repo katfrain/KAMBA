@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://f5q14ovlglb5" path="res://Kat/Assets/coin_placeholder.png" id="10_uwcpk"]
 [ext_resource type="PackedScene" uid="uid://cm37f6ply2xc8" path="res://Kat/Scenes/collectable.tscn" id="12_4hsfj"]
 [ext_resource type="Script" uid="uid://dmrcu83aikjal" path="res://Kat/Scripts/win_zone.gd" id="12_7eeee"]
-[ext_resource type="Script" uid="uid://1dp1a3onku53" path="res://Kat/Scenes/health_label.gd" id="12_cqxpy"]
+[ext_resource type="Script" path="res://Kat/Scenes/health_label.gd" id="12_cqxpy"]
 [ext_resource type="Texture2D" uid="uid://da4j2uxdsgv5q" path="res://Kat/Assets/heart_placeholder.png" id="13_tm7jd"]
 [ext_resource type="Script" uid="uid://bd2qgomgj5kn2" path="res://Kat/Scripts/collectable.gd" id="14_em6et"]
 [ext_resource type="PackedScene" uid="uid://c4lsv75wh0874" path="res://Kat/Scenes/Enemy.tscn" id="16_oiaoc"]
@@ -216,6 +216,7 @@ collision_mask = 255
 
 [node name="Player" parent="Character" instance=ExtResource("6_ldmg1")]
 position = Vector2(131, 327)
+
 [node name="Camera2D2" type="Camera2D" parent="Character/Player"]
 position = Vector2(113.333, 31.5556)
 scale = Vector2(1.35, 1.35)
