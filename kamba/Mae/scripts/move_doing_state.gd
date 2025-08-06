@@ -13,7 +13,7 @@ signal vectorChar(dir)
 
 @export var animated_sprite: AnimatableBody2D: 
 	get: 
-		return $"../../AnimatedSprite2D"
+		return $"../../KatAndMaeAnimations"
 
 
 func Enter():

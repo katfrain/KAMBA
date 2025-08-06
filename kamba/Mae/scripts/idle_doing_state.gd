@@ -6,7 +6,7 @@ extends State
 @export var persona: State   # Dynamically updated persona identity
 @export var animated_sprite: AnimatableBody2D: 
 	get: 
-		return $"../../AnimatedSprite2D"
+		return $"../../KatAndMaeAnimations"
 var local_can_move: bool = true
 
 func Enter():

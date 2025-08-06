@@ -8,7 +8,7 @@ const JUMP = 600
 
 @export var animated_sprite: AnimatableBody2D: 
 	get: 
-		return $"../../AnimatedSprite2D"
+		return $"../../KatAndMaeAnimations"
 
 func Enter():
 	state_machine.player.velocity.y = -JUMP

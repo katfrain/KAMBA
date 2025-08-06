@@ -8,9 +8,9 @@
 [ext_resource type="Script" uid="uid://0tthflpwe5xs" path="res://Kat/Scripts/Enemy_idle.gd" id="4_iysdc"]
 [ext_resource type="Script" uid="uid://ccdcnt2s32jwv" path="res://Kat/Scripts/Enemy_chase.gd" id="5_mi1fc"]
 [ext_resource type="Script" uid="uid://up0b432wud28" path="res://Kat/Scripts/LoS.gd" id="6_e821s"]
-[ext_resource type="Script" path="res://Kat/Scenes/Enemy_charge.gd" id="7_gvs0u"]
+[ext_resource type="Script" uid="uid://qb3vqi3aemjk" path="res://Kat/Scenes/Enemy_charge.gd" id="7_gvs0u"]
 [ext_resource type="Script" uid="uid://dp43eq8w4mchl" path="res://Kat/Scripts/debug_text.gd" id="7_ja812"]
-[ext_resource type="Script" path="res://Kat/Scenes/Enemy_attack.gd" id="8_lj4a3"]
+[ext_resource type="Script" uid="uid://d4nu1bciwpy1k" path="res://Kat/Scenes/Enemy_attack.gd" id="8_lj4a3"]
 [ext_resource type="Script" uid="uid://qrj2c8nr37pu" path="res://Kat/Scripts/label.gd" id="9_nwbcv"]
 [ext_resource type="Script" uid="uid://begu7rn3rdwab" path="res://Kat/Scripts/ray_cast_2d.gd" id="10_4c8or"]
 
@@ -189,6 +189,7 @@ script = ExtResource("10_4c8or")
 [node name="Chase Range" type="Area2D" parent="."]
 position = Vector2(2, 1)
 scale = Vector2(0.15, 0.15)
+collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chase Range"]
 position = Vector2(-7, 4)
@@ -197,6 +198,7 @@ shape = SubResource("CircleShape2D_nsq6j")
 [node name="Attack Range" type="Area2D" parent="."]
 position = Vector2(2, 1)
 scale = Vector2(0.15, 0.15)
+collision_layer = 8
 collision_mask = 129
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Attack Range"]
