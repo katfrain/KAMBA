@@ -10,18 +10,24 @@ extends CharacterBody2D
 	get: 
 		return $KatAndMaeAnimations/KatPaintbrush
 
+@export var total_health:int = 100
+
+
 
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 var can_move: bool = true
+var current_health: int
 
 
-
+signal health_change(current_health: int)
 signal game_over
 signal win_level
 var directionOfChar: bool = false
 
 func _ready():
-	pass
+	current_health = 100
+	health_change.emit(current_health)
+	
 func _physics_process(delta: float) -> void:
 	var direction = Input.get_axis("move_left", "move_right")
 	
@@ -50,8 +56,24 @@ func _process(delta: float) -> void:
 	Being_sm.process(delta)
 	Doing_sm.process(delta)
 	
+func respawn() -> void:
+	current_health = total_health
 	
-func fall_death(body: Node2D) -> void:
+func take_damage(dmg: int):
+	print("player taking damage!", dmg)
+	current_health -= dmg
+	print(current_health)
+	if current_health <= 0:
+		current_health = 0
+		health_change.emit(current_health)
+		death()
+	else:
+		health_change.emit(current_health)
+		# Add damage effect
+		
+	
+func death() -> void:
+	# add death animation here
 	game_over.emit()
 	can_move = false
 
@@ -74,8 +96,3 @@ func on_shoot(bullet):
 	if directionOfChar:
 		spawedBullet.vector = Vector2.RIGHT
 	else: 	spawedBullet.vector = Vector2.LEFT
-
-
-func enemy_kill_on_collision(body: Node2D) -> void:
-	fall_death(body)
-	#add death animation here
